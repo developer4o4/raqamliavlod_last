@@ -1,0 +1,3 @@
+N = int(input())
+chains = list(map(int, input().split()))
+print(chains.count(1) + N - 1)

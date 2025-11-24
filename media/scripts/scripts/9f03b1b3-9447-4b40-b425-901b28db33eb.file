@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+signed main(){
+    int n,m;
+    cin >> n >> m;
+    vector<int> vec(m);
+    for(int i=0; i<m; i++){
+        cin >> vec[i];
+    }
+    sort(vec.begin(),vec.end());
+    int l=1,r=1e15;
+    while(l<r){
+        int mid=(l+r)/2;
+        int cnt=0;
+        for(auto x:vec){
+            cnt+=(x+mid-1)/mid;
+        }
+        if(cnt>n)l=mid+1;
+        else r=mid;
+    }
+    cout << r;
+}

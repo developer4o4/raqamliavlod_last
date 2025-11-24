@@ -1,0 +1,21 @@
+def SmallestNonDivisor(N):
+    I = 2
+    while N % I == 0:
+        I += 1
+    return I
+
+def Strength(N):
+    C = 1
+    while N != 2:
+        N = SmallestNonDivisor(N)
+        C += 1
+    return C
+
+def TotalStrength(A, B):
+    T = 0
+    for NUM in range(A, B + 1):
+        T += Strength(NUM)
+    return T
+
+A, B = map(int, input().split())
+print(TotalStrength(A, B))

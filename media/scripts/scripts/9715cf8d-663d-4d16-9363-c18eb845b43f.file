@@ -1,0 +1,8 @@
+def calc(n, s):
+    mx = max(s) + n 
+    return sum(1 for i in s if i + n >= mx)
+
+n = int(input())
+s = [int(input()) for _ in range(n)]
+
+print(calc(n, s)*2)

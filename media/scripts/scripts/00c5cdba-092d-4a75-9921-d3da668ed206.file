@@ -1,0 +1,21 @@
+n=int(input())
+b=[]
+for i in range(n):
+    a=str(input())
+    b.append(a)
+c=str(input())
+d=["abc", "def", 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz']
+cnt=0
+#print(b)
+for i in range(0, len(b)):
+    x=0
+    k=b[i]
+    if(len(k)<=len(c)):
+        for j in range(0, len(k)):
+            #print(k[j], d[int(c[j])-2])
+            if k[j] in d[int(c[j])-2]:
+                x+=1 
+        if(x==len(b[i])):
+            cnt+=1
+print(cnt)
+            

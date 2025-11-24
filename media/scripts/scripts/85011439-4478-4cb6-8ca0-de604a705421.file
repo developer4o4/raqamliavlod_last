@@ -1,0 +1,12 @@
+a = int(input())
+d = []
+s = 0
+for i in range(a):
+    d.append(int(input()))
+d.sort()
+for i in range(len(d) - 1):
+    if d[i] + a == (a - 1) + d[i + 1]:
+        break
+    else:
+        s += 1
+print(a-(s-1))

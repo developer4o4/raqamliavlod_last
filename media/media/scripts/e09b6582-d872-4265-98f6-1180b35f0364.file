@@ -1,0 +1,6 @@
+a=int(input())
+l=[0]*a
+for i in range(a):
+    l[i]=int(input())
+m=min(l)
+print(a-l.count(m))

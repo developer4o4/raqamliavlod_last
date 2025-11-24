@@ -1,0 +1,16 @@
+def remove_tashkent_letters(word):
+    # "TOSHKENT" so'zidagi harflar
+    tashkent_letters = set("TOSHKENT")
+    # Faqat "TOSHKENT"da bo'lmagan harflarni olish
+    result = ''.join([char for char in word if char not in tashkent_letters])
+    return result
+
+# Kirish ma'lumotlari
+inputs = ["YANGITOSHKENT", "TATU"]
+
+# Chiqish natijalari
+outputs = [remove_tashkent_letters(word) for word in inputs]
+
+# Natijalarni chop etish
+for output in outputs:
+    print(output)

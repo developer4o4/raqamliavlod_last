@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+int main() {
+    string n;
+    cin >> n;
+    string t = "TOSHKENT";
+    string r = "";
+    for (char c : n) {
+        long long s = false;
+        for (char t : t) {
+            if (toupper(c) == t) {
+                s = true;
+                break;
+            }
+        }
+        if (!s) {
+            r += c;
+        }
+    }
+
+    cout << r << endl;
+
+    return 0;
+}

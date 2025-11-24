@@ -1,0 +1,15 @@
+def count_possible_champions(N, points):
+    sorted_points = sorted(points, reverse=True)
+
+    max_possible_points = sorted_points[0] + N  
+
+    possible_champions = 0
+    for point in sorted_points:
+
+        if point + N >= max_possible_points:
+            possible_champions += 1
+    
+    return possible_champions
+N = int(input())  
+points = [int(input()) for _ in range(N)]  
+print(count_possible_champions(N, points))

@@ -1,0 +1,7 @@
+def remove(word):
+    tashkent_chars = set("TOSHKENTtoshkent")
+    result = ''.join([char for char in word if char not in tashkent_chars])
+    return result
+
+w = input()
+print(remove(w))

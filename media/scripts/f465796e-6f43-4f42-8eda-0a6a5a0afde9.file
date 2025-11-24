@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    int grade;
+    scanf("%d", &grade);
+
+    // Agar baho 38 dan kichik bo'lsa, uni o'zgartirish kerak emas, faqat 38 ga tenglashtiriladi
+    if (grade >= 38) {
+        // Agar baho 5 ga karrali emas bo'lsa
+        if (grade % 5 != 0) {
+            int nextMultipleOf5 = (grade / 5 + 1) * 5;  // Keyingi 5 ga karrali sonni topish
+            // Agar bu son bilan farqi 3 dan kichik bo'lsa, yaxlitlash
+            if (nextMultipleOf5 - grade < 3) {
+                grade = nextMultipleOf5;
+            }
+        }
+    } else {
+        grade = 38;  // Agar baho 38 dan kichik bo'lsa, 38 ga tenglashtiriladi
+    }
+
+    printf("%d\n", grade);  // Yaxlitlangan bahoni chiqarish
+    return 0;
+}

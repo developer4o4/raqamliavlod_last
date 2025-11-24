@@ -1,0 +1,19 @@
+N = int(input())
+
+while 3 <= N <= 300000:
+    scores = list(map(int, input().split()))
+
+    if len(scores) != N:
+        print(f"Kiritilgan ballar soni {N} ga teng bo'lishi kerak.")
+        break
+
+    avg = sum(scores) / N
+
+    winc = sum(1 for s in scores if s >= avg)
+
+    print(winc)
+
+    try:
+        N = int(input())
+    except ValueError:
+        break

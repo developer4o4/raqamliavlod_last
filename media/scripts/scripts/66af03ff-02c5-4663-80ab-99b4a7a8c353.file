@@ -1,0 +1,9 @@
+// Write your code here...a=int(input())
+for _ in range(a):
+b=int(input())
+c=max(b)
+s=0
+for i in b:
+  if i+a>=c:
+    s+=1
+print(s)

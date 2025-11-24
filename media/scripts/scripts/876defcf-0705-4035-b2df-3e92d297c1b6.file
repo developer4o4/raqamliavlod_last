@@ -1,0 +1,4 @@
+soz = input().strip()
+for char in "TOSHKENT":
+    soz= soz.replace(char, "")
+print(soz)

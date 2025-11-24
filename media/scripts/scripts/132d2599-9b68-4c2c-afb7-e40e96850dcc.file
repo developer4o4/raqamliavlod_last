@@ -1,0 +1,10 @@
+a=int(input())
+b=int(input())
+k=""
+if a>b:
+    k=">"
+if a<b:
+    k="<"
+if a==b:
+    k="="
+print(k)

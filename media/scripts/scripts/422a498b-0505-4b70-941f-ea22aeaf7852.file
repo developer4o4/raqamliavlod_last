@@ -1,0 +1,19 @@
+a = input()
+p, m = map(int, input().split())
+b = ""
+c = ""
+for i in a:
+	if i == 'x':
+		b += '0'
+		c += '1'
+	else:
+		b += i
+		c += i
+k = eval(b)
+x = eval(c) - k
+p -= k
+while p < 0:
+	p += m
+while p % x:
+	p += m
+print(p // x)

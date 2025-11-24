@@ -1,0 +1,7 @@
+a = input()
+s = list(a)
+for j in "TOSHKENT":
+    while j in s:
+        s.remove(j)
+l = "".join(s)
+print(l)

@@ -1,0 +1,13 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+int main() {
+	string s;
+	cin >> s;
+	string f = "TOSHKENT";
+	for(char i : s){
+		char x = char(toupper(i));
+		if(f.find(x) == string::npos) cout << i;	
+	}
+}

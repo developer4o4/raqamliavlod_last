@@ -1,0 +1,24 @@
+def find_potential_champions(n, scores):
+    # Yakuniy poygada birinchi o'rinni oladigan poygachiga maksimal ball
+    max_points_in_race = n
+
+    # Poygachilarning maksimal umumiy ballarini hisoblash
+    max_possible_scores = [score + max_points_in_race for score in scores]
+
+    # Hozirgi eng katta ball
+    max_score = max(scores)
+
+    # Hali ham g'olib bo'lish imkoniyati bor poygachilarni hisoblash
+    potential_champions = sum(1 for max_score_after_race in max_possible_scores if max_score_after_race >= max_score)
+
+    return potential_champions
+
+# Kirish ma'lumotlari
+n = int(input())
+scores = [int(input()) for _ in range(n)]
+
+# Natijani hisoblash
+result = find_potential_champions(n, scores)
+
+# Chiqish ma'lumotlari
+print(result)

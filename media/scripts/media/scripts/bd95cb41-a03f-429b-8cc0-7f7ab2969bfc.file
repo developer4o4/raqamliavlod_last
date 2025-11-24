@@ -1,0 +1,15 @@
+# Kiruvchi ma'lumotlar
+n = int(input().strip())
+scores = [int(input().strip()) for _ in range(n)]
+
+# Eng yuqori ochkolarni aniqlash
+max_score = max(scores)
+
+# Yakuniy poygada g'olib bo'lish imkoniyatiga ega bo'lgan poygachilar sonini hisoblash
+potential_winners = 0
+for score in scores:
+    if score + n >= max_score:
+        potential_winners += 1
+
+# Chiquvchi ma'lumotlar
+print(potential_winners)

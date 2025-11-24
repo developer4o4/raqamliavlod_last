@@ -1,0 +1,7 @@
+a=input()
+s=""
+b="TOSHKENT"
+for i in a:
+    if i!="T" and i!="O" and i!="S" and i!="H" and i!="K" and i!="E" and i!="N":
+        s+=i
+print(s)        

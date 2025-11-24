@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define int long long
+
+signed main() {
+	int n;
+	cin >> n;
+	vector<string> a(n);
+	for (auto &i : a) cin >> i;
+	string s;
+	cin >> s;
+	map<char, set<char>> mp;
+	mp['2'] = {'a', 'b', 'c'};
+	mp['3'] = {'d', 'e', 'f'};
+	mp['4'] = {'g', 'h', 'i'};
+	mp['5'] = {'j', 'k', 'l'};
+	mp['6'] = {'m', 'n', 'o'};
+	mp['7'] = {'p', 'q', 'r', 's'};
+	mp['8'] = {'t', 'u', 'v'};
+	mp['9'] = {'w', 'x', 'y', 'z'};
+	int k = 0;
+	for (auto i : a) {
+		if (s.size() == i.size()) {
+			bool ok = true;
+			for (int j = 0; j < s.size(); ++j) {
+				ok = ok && (mp[s[j]].count(i[j]));
+			}
+			k += ok;
+		}
+	}
+	cout << k;
+	return 0;
+}

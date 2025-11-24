@@ -1,0 +1,23 @@
+n=int(input())
+d=[]
+for i in range(n):
+    b=int(input())
+    d.append(b)
+mx1=-float('inf') 
+mx2=-float('inf')
+mx1_cnt=0
+mx2_cnt=0
+for i in d:
+    if(i>mx1):
+        mx2=mx1
+        mx2_cnt=mx1_cnt
+        mx1=i
+        mx1_cnt=1
+    elif(i==mx1):
+        mx1_cnt+=1
+    elif(i>mx2):
+        mx2=i
+        mx2_cnt=1
+    elif(i==mx2):
+        mx2_cnt+=1 
+print(mx1_cnt+mx2_cnt)

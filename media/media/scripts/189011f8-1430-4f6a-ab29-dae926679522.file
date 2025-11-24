@@ -1,0 +1,18 @@
+soni=int(input())
+x=1
+arr=[]
+for i in range(0,soni):
+  arr.append(int(input()))
+arrS=sorted(arr)
+arr2=[]
+i=0
+while i<len(arrS):
+  arr2.append(arrS[i]+(soni-(i)))
+  i=i+1
+arr2.sort()
+arr2M=arr2[-1]
+n=0
+for x in arr:
+  if (x+soni)>=arr2M:
+    n=n+1
+print(n)

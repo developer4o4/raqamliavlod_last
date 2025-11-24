@@ -1,0 +1,5 @@
+a=input()
+s='TOSHKENT'
+for i in s:
+  a.remove(i)
+print(a)

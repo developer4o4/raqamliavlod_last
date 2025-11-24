@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int n, m = 0, k = 0, s = 1;
+	cin >> n;
+	vector<int> a(n);
+	for (int &i : a) cin >> i;
+	sort(a.rbegin(), a.rend());
+	for (int i : a) {
+		if (i + n >= m) k++;
+		m = max(m, i + s++);
+	}
+	cout << k;
+	return 0;
+}

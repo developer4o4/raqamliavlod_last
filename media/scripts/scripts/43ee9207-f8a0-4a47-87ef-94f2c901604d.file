@@ -1,0 +1,17 @@
+#include <iostream>
+
+int main() {
+    int N;
+    std::cin >> N;
+
+    // Skip reading the lengths of the chains, as they don't affect the result
+    for (int i = 0; i < N; ++i) {
+        int length;
+        std::cin >> length;
+    }
+
+    // Output the minimum number of links needed to connect all chains
+    std::cout << (N - 1) << std::endl;
+
+    return 0;
+}

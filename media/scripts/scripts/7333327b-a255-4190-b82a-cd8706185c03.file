@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    scanf("%d", &N);  // Poygachilar sonini o'qish
+    
+    int scores[N];  // Har bir poygachining ochkolarini saqlash uchun massiv
+    
+    // Poygachilarning ochkolarini o'qish
+    for (int i = 0; i < N; i++) {
+        scanf("%d", &scores[i]);
+    }
+    
+    // Eng katta ballni topish uchun
+    int max_score = -1; // Max score boshlang'ich qiymat
+    for (int i = 0; i < N; i++) {
+        if (scores[i] > max_score) {
+            max_score = scores[i];
+        }
+    }
+
+    // Eng katta ballga ega poygachilarning sonini hisoblash
+    int count = 0;
+    for (int i = 0; i < N; i++) {
+        if (scores[i] == max_score) {
+            count++;
+        }
+    }
+    
+    // Natijani chiqarish
+    printf("%d\n", count); 
+    return 0;
+}

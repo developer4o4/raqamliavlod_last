@@ -1,0 +1,22 @@
+def count_possible_champions(N, points):
+    # Poygachilar uchun maksimal umumiy ochkolarni hisoblash
+    max_points_possible = max(points) + N
+
+    # Kimlar hali g‘olib bo‘lish imkoniyatiga ega ekanligini sanash
+    count = sum(1 for point in points if point + N >= max_points_possible)
+
+    return count
+
+
+# Kirish ma'lumotlarini o'qish
+import sys
+input = sys.stdin.read
+data = input().split()
+
+# Poygachilar soni va ularning ochkolari
+N = int(data[0])
+points = list(map(int, data[1:]))
+
+# Natijani hisoblash va chiqarish
+result = count_possible_champions(N, points)
+print(result)

@@ -1,0 +1,12 @@
+N = int(input())
+
+if not (3 <= N <= 300000):
+    print("N soni 3 va 300000 oralig'ida bo'lishi kerak.")
+else:
+    scores = [int(input()) for _ in range(N)]
+
+    avg = sum(scores) / N
+
+    winc = sum(1 for s in scores if s >= avg)
+
+    print(winc)

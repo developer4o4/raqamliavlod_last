@@ -1,0 +1,22 @@
+#include <algorithm>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+using ll = long long;
+
+ll f(ll n) {
+	return (n >= 6) + max(0ll, n - 6) / 12;
+}
+
+ll g(ll n) {
+	return (n >= 70) + max(0ll, n - 70) / 140;
+}
+
+int main() {
+	ll a, b, c;
+	cin >> a >> b;
+	c = (b - a + 1) * 2 + b / 2 - (a - 1) / 2 + f(b) - f(a - 1) + g(b) - g(a - 1);
+	cout << c;
+	return 0;
+}

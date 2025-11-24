@@ -1,0 +1,128 @@
+#ifdef __APPLE__
+
+#include <iostream>
+#include <chrono>
+#include <numeric>
+#include <cmath>
+#include <climits>
+
+#include <vector>
+#include <map>
+#include <set>
+#include <queue>
+#include <stack>
+
+#include <random>
+#include <chrono>
+
+#else
+#include <bits/extc++.h>
+#endif
+
+using namespace std;
+
+#pragma GCC optimize("O3,unroll-loops")
+// #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+
+#define ll long long
+#define ull unsigned long long
+
+#define pb push_back
+#define pf push_front
+#define ppb pop_back
+#define ppf pop_front
+#define ins insert
+
+#define nl '\n'
+#define ln '\n'
+#define sz size
+#define F first
+#define S second
+
+#define pii pair<int,int>
+#define pll pair<ll,ll>
+
+#define all(x) (x).begin(), (x).end()
+#define rall(x) (x).rbegin(), (x).rend()
+
+#ifdef __APPLE__
+	#define err(args...) {error(args);}
+	template<typename... Args>
+	void error(Args... args) {
+		((cerr << args << ' '),...);
+	}
+	#define errln(args...) {errorln(args);}
+	template<typename... Args>
+	void errorln(Args... args) {
+		((cerr << args << ' '),...);
+		cerr << '\n';
+	}
+#else 
+	#define err(...)
+	#define errln(...)
+#endif
+
+/* INDEXED SET
+using namespace __gnu_pbds;
+typedef tree<ll, null_type, less<int>, rb_tree_tag,
+             tree_order_statistics_node_update> i_set; 
+*/
+
+mt19937 rnd(chrono::steady_clock::now().time_since_epoch().count());
+const int inf = 2e9;
+const ll linf = 2e18;  
+const int N = 2e5 + 9, mod = 1e9 + 7;
+
+// #define TESTCASES
+
+void solve(){
+     ll n, m;
+     
+     cin >> n >> m;
+     
+     vector<ll> vc(m);
+     
+     for (auto &i:vc) cin >> i;
+     
+     ll ans=0, b=1e15;
+     
+     auto ok=[&vc,&n](ll k) -> bool {
+     	ll cnt=0;
+     	for (auto i:vc){
+     		cnt+=(i+k-1)/k;
+     	}
+     	return cnt<=n;
+     };
+     
+     while (b){
+     	while (!ok(ans+b)) ans+=b;
+     	b/=2;
+     }
+     
+     cout << ans+1;
+}
+
+signed main() {
+     clock_t sTime = clock();
+     ios_base::sync_with_stdio(0);
+     cin.tie(0);
+     cout.tie(0);
+     
+#ifdef TESTCASES
+
+     int t = 1;
+     cin >> t;
+     while (t--) {
+          solve();
+          cout << '\n';
+     }
+     
+#else
+
+	 solve();
+	 
+#endif
+     
+     int Runtime=(double)(clock() - sTime) / CLOCKS_PER_SEC * 1000;
+     err("Time:", Runtime);
+}

@@ -1,0 +1,5 @@
+N = int(input())
+scores = [int(input()) for _ in range(N)]
+max_score = max(scores)
+count_max_score = sum(1 for score in scores if score + N - 1 >= max_score)
+print(count_max_score)

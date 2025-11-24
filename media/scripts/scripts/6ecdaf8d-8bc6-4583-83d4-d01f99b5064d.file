@@ -1,0 +1,14 @@
+N = int(input())
+if N < 3 or N > 300000:
+    print("N 3 dan 300000 gacha bo'lishi kerak.")
+else:
+    scores = list(map(int, input().split()))
+
+    if len(scores) != N:
+        print(f"Kiritilgan ballar soni {N} ga teng bo'lishi kerak.")
+    else:
+        avg = sum(score + (N - i) for i, score in enumerate(scores)) / N
+        
+        cavg = sum(1 for score in (score + (N - i) for i, score in enumerate(scores)) if score >= avg)
+
+        print(cavg)

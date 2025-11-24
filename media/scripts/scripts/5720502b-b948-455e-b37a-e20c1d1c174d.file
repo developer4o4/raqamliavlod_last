@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+#define len(a) (int)a.size()
+void solve(){ 
+  int n;cin >> n;
+  vector<int> a(n);for(int &i:a) cin >> i;
+  sort((a).begin(),a.end(),greater<int>());
+  int cnt = 0,s = 0;
+  int mx = 0,mx2 = 0;
+  for(int i = 0;i < n;i++) mx2 = max(mx,a[i] + i);
+  for(int i= 0;i < n;i++){
+    mx = max(mx,a[i]+i+1);
+    if(a[i] + n >= mx && a[i] + n >= mx2)cnt++;
+  }
+  cout << cnt;
+}
+main(){
+  #ifdef DEBUG_
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
+  #endif
+  int q = 1;//cin >> q;
+  while(q--) solve();
+}

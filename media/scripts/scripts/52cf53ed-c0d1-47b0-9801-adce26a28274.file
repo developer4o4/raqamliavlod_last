@@ -1,0 +1,6 @@
+N = int(input()) 
+scores = [int(input()) for _ in range(N)]  
+max_score = max(scores)
+potential_scores = [score + N for score in scores]
+potential_champions = sum(1 for score in potential_scores if score >= max_score)
+print(potential_champions)

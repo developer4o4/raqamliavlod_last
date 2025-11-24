@@ -1,0 +1,7 @@
+s = str(input())
+b = "TOSHKENT"
+a = ""
+for x in s:
+    if x not in b:
+        a+=x
+print(a)

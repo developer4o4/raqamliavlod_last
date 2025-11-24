@@ -1,0 +1,18 @@
+def f(n):
+    for i in range(2,n+1):
+        if n%i!=0:
+            return i
+def strength(n):
+    s = 1
+    while n != 2:
+        n = f(n)
+        s += 1
+    return s
+
+def ans(a, b):
+    s = 0
+    for i in range(a, b + 1):
+        s += strength(i)
+    return s
+a,b=map(int,input().split())
+print(ans(a,b))

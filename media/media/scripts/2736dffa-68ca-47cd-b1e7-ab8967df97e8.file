@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    string s;
+    cin >> s;
+    map<char,int> mp;
+    for(char x:"TOSHKENT")mp[x]=1;
+    for(char c:s){
+        if(mp[c]==0)cout << c;
+    }
+}

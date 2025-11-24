@@ -1,0 +1,10 @@
+n = int(input())
+points = [int(input())for i in range(n)]
+max_points = max(points)
+def f7(n, points):
+    champions = 0
+    for score in points:
+        if score + n >=max_points:
+            champions += 1
+    return champions
+print(f7(n, points))

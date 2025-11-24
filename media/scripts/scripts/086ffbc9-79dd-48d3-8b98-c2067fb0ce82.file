@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    int n;
+    cin >> n;
+    vector<int> arr;
+    int ones = 0;
+    for(int i = 0; n > i; i++){
+        int x;
+        cin >> x;
+        if(x==1){
+            ones+=1;
+        }
+        else{
+            arr.push_back(x);
+        }
+    }
+    int ans = 0;
+    for(int i = 0; arr.size() > i; i++){
+        if(i <= n - 1 && ones > 0){
+            ones -= 1;
+            i += 1;
+            ans += 1;
+        }
+        else{
+            ans += 1;
+            i += 1;
+        }
+    }
+    if(ones == 1){
+        ans += 1;
+    }
+    if(ones >= 2){
+        ans += ones / 2;
+    }
+    cout << ans << '\n';
+    
+    return 0;
+}// 3 3 1

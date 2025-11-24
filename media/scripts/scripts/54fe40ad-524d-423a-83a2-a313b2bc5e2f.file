@@ -1,0 +1,11 @@
+def remove_tashkent_letters(word):
+    tashkent_letters = set("TOSHKENT")
+    result = "".join([char for char in word if char not in tashkent_letters])
+    return result
+
+input_data = ["YANGITOSHKENT", "TATU"]
+
+output_data = [remove_tashkent_letters(word) for word in input_data]
+
+for output in output_data:
+    print(output)

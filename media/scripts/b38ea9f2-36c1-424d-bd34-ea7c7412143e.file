@@ -1,0 +1,27 @@
+def smallest_non_divisor(n):
+    """Berilgan `n` soni uchun eng kichik bo‘linmaydigan sonni qaytaradi."""
+    i = 2
+    while n % i == 0:  # `n` soniga bo'linadigan bo'lmagan birinchi `i` ni topamiz
+        i += 1
+    return i
+
+def strength(n):
+    """Berilgan `n` sonining kuchini (strength) hisoblaydi."""
+    count = 1  # Boshlang'ich kuch (o'zidan boshlab)
+    while n != 2:  # Ikki bo'lmaguncha davom etadi
+        n = smallest_non_divisor(n)  # Har safar eng kichik bo'linmaydigan sonni olamiz
+        count += 1  # Kuchni oshiramiz
+    return count
+
+def total_strength(A, B):
+    """A dan B gacha barcha sonlarning kuchlar yig‘indisini qaytaradi."""
+    total = 0
+    for num in range(A, B + 1):  # A dan B gacha har bir son uchun strength hisoblaymiz
+        total += strength(num)
+    return total
+
+# Kirish ma'lumotlari
+A, B = map(int, input().split())
+
+# Chiqish ma'lumotlari
+print(total_strength(A, B))

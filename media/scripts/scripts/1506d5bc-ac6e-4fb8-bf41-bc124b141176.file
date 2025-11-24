@@ -1,0 +1,21 @@
+def count_possible_champions(N, scores):
+    # Poygachilar ochkolarining maksimal mumkin bo'lgan qiymatini hisoblash
+    max_points = max(scores)  # Hozirgi maksimal ochkolar yig‘indisi
+    potential_points = [score + N for score in scores]  # Yakuniy poygadagi maksimal natija
+    
+    # Chempion bo'lish imkoniyatiga ega bo'lganlar sonini hisoblash
+    max_final_points = max(potential_points)  # Maksimal yakuniy ochkolar
+    possible_champions = sum(1 for points in potential_points if points == max_final_points)
+    
+    return possible_champions
+
+# Kirish ma'lumotlari
+N = int(input("Poygachilar soni (N): "))
+scores = []
+for _ in range(N):
+    score = int(input("Poygachining ochkolari: "))
+    scores.append(score)
+
+# Chiqish natijasi
+result = count_possible_champions(N, scores)
+print(result)

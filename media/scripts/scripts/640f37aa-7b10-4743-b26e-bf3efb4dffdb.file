@@ -1,0 +1,11 @@
+n = int(input())
+a = n%5
+if n>=38:
+  if a >= 3:
+    x = 5 - a
+    n+=x
+    print(n)
+  else:
+    print(n)
+else:
+  print(n)

@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    
+    vector <int> a(n);
+    for (int &i : a) cin >> i;
+    
+    int ans = 0;
+    priority_queue <int> pq;
+    
+    sort(a.rbegin(), a.rend());
+    for (int i = 0; i < n; i ++) {
+        pq.push(a[i] + i + 1);
+    }
+    
+    for (int i = 0; i < n; i ++) {
+        if (a[i] + n >= pq.top()) {
+            ans ++;
+        }
+    }
+    
+    cout << ans << endl;
+    
+    return 0;
+}

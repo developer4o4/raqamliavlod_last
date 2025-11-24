@@ -1,0 +1,19 @@
+n = int(input())
+q = []
+for _ in range(n):
+    l = int(input())
+    q.append(l)
+q.sort()
+j=0
+p=0
+j=j+n
+arr1 = []
+for i in q:
+    i=i+j
+    arr1.append(i)
+    j=j-1
+m = max(arr1)
+for x in q:
+    if (x+n)>=m:
+        p+=1 
+print(p)

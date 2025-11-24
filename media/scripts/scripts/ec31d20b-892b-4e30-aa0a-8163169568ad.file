@@ -1,0 +1,8 @@
+a = input()
+
+x = "TOSHKENT"
+
+for i in range(0,len(x)):
+	a = a.replace(x[i],"")
+
+print(a)

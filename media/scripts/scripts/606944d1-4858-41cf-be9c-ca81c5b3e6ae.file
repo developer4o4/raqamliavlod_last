@@ -1,0 +1,6 @@
+a = list(input()) 
+s=''
+for i in a:
+    if i not in ['T', 'O', 'S', 'H', 'K', 'E', 'N']: 
+        s += i
+print(s) 

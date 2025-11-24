@@ -1,0 +1,9 @@
+a=int(input())
+x=(a//5+1)*5
+if a>=38:
+    if x-a>=3:
+        print(a)
+    else:
+        print(x)
+else:
+    print(a)

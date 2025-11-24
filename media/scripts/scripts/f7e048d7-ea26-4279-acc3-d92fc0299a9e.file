@@ -1,0 +1,5 @@
+A = input()
+P, M = map(int, input().strip().split())
+
+def mod(x):
+    return (x[0] % M, x[1] % M)

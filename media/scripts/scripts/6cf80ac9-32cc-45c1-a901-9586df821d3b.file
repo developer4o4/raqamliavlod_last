@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    // Kirish ma'lumotlarini o'qiymiz
+    int N;
+    cin >> N;
+
+    vector<int> scores(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> scores[i];
+    }
+
+    // Maksimal ochkolar yig'indisini hisoblash
+    int max_score = *max_element(scores.begin(), scores.end());
+
+    // Yakuniy poygada g'alaba qilish uchun imkoniyatlarni hisoblash
+    int possible_champions = 0;
+    for (int i = 0; i < N; ++i) {
+        if (scores[i] + N >= max_score) {
+            ++possible_champions;
+        }
+    }
+
+    // Natijani chiqaramiz
+    cout << possible_champions << endl;
+
+    return 0;
+}

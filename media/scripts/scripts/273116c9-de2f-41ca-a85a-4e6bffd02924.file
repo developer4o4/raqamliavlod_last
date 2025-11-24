@@ -1,0 +1,10 @@
+a=int(input())
+l=list(map(int,input().split()))
+b=int(input())
+res=0
+for i in range(len(l)):
+    for x in range(i+1,len(l)+1):
+        fg=sum(l[i:x])//len(l[i:x])
+        if fg>=b:
+            res=res+1
+print(res)

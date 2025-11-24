@@ -1,0 +1,72 @@
+//#ifndef LOCAL
+//#pragma GCC optimize ("Ofast")
+//#pragma GCC optimize ("unroll-loops")
+//#endif
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int int64_t
+#define pb  push_back
+#define vi vector
+#define vii vector<pair<int,int>>
+#define lb lower_bound
+#define ub upper_bound
+#define ins insert
+#define ss second
+#define ff first
+#define sz(x) int(x.size())
+#define all(x) (x).begin(), (x).end()
+#define seea(a,n) for(int i=0;i<n;i++){cin>>a[i];}
+const int mod = 1E9+7;
+const int MAXN=200000;
+const int inf=1e18;
+void solution(){
+	int n;
+    cin >> n;
+    vi<string> a(n);
+    for(auto &x:a)cin >> x;
+    string s;
+    cin >> s;
+    map<char,int> mp,need;
+    for(auto x:s)mp[x]++;
+    int cnt=0;
+    for(auto x:a){
+        bool ok=1;
+        for(auto c:x){
+            if(c=='a' || c=='b' || c=='c'){
+                if(mp['2']==0)ok=0;
+            }
+            if(c=='d' || c=='e' || c=='f'){
+                if(mp['3']==0)ok=0;
+            }
+            if(c=='g' || c=='h' || c=='i'){
+                if(mp['4']==0)ok=0;
+            }
+            if(c=='j' || c=='k' || c=='l'){
+                if(mp['5']==0)ok=0;
+            }
+            if(c=='m' || c=='n' || c=='o'){
+                if(mp['6']==0)ok=0;
+            }
+            if(c=='p' || c=='q' || c=='r' || c=='s'){
+                if(mp['7']==0)ok=0;
+            }
+            if(c=='t' || c=='u' || c=='v'){
+                if(mp['8']==0)ok=0;
+            }
+            if(c=='w' || c=='x' || c=='y' || c=='z'){
+                if(mp['9']==0)ok=0;
+            }
+        }
+        if(ok)cnt++;
+    }
+    cout << cnt;
+}
+int32_t main(){
+    std::ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    int q = 1;
+        //cin >> q;
+    while(q--) {
+        solution();
+    }
+}

@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+// strength(N) ni hisoblash funksiyasi
+int strength(long long N) {
+    int count = 1;  // N o'zi birinchi bosqich
+    while (N > 2) {
+        if (N % 2 == 0) {
+            N /= 2;  // Agar juft bo'lsa, N ni 2 ga bo'lamiz
+        } else {
+            N -= 1;  // Agar toq bo'lsa, N ni 1 ga kamaytiramiz
+        }
+        count++;  // Har bir bosqichni hisoblash
+    }
+    return count;
+}
+
+int main() {
+    long long A, B;
+    cin >> A >> B;  // A va B sonlarini o'qish
+
+    long long result = 0;
+    for (long long i = A; i <= B; i++) {
+        result += strength(i);  // Har bir sonning kuchini qo'shish
+    }
+
+    cout << result << endl;  // Yakuniy natijani chiqarish
+
+    return 0;
+}

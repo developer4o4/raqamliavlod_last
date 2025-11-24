@@ -1,0 +1,4 @@
+A = int(input())  # Birinchi sonni o'qish
+B = int(input())  # Ikkinchi sonni o'qish
+
+print(A + B)

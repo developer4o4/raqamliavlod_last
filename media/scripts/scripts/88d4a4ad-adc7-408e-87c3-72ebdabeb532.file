@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define int long long
+
+struct segtree {
+	int n;
+	vector<int> t;
+	segtree(int m) {
+		n = m;
+		t.assign(n << 2, 0);
+	}
+	void update(int v, int l, int r, int p) {
+		if (l > p || r < p) return;
+		if (l == r) t[v]++;
+		else {
+			int m = (l + r) >> 1;
+			update(v << 1, l, m, p);
+			update(v << 1 | 1, m + 1, r, p);
+			t[v] = t[v << 1] + t[v << 1 | 1];
+		}
+	}
+	int sum(int v, int l, int r, int L, int R) {
+		if (l > R || r < L) return 0;
+		if (L <= l && r <= R) return t[v];
+		else {
+			int m = (l + r) >> 1;
+			return sum(v << 1, l, m, L, R) + sum(v << 1 | 1, m + 1, r, L, R);
+		}
+	}
+};
+
+signed main() {
+	int n, p, k = 0, ans = 0;
+	cin >> n;
+	vector<int> a(n), b;
+	for (int &i : a) cin >> i;
+	cin >> p;
+	set<int> s;
+	for (int &i : a) {
+		k += p - i;
+		s.insert(p * 2 - i - k);
+	}
+	for (int i : s) b.emplace_back(i);
+	n = s.size();
+	segtree st(n);
+	k = 0;
+	for (int i : a) {
+		ans += st.sum(1, 0, n - 1, 0, upper_bound(b.begin(), b.end(), i - k) - b.begin() - 1);
+		k += p - i;
+		st.update(1, 0, n - 1, upper_bound(b.begin(), b.end(), p * 2 - i - k) - b.begin() - 1);
+		ans += i >= p;
+	}
+	cout << ans;
+	return 0;
+}

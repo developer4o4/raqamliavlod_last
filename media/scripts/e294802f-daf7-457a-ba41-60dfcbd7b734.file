@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int A = sc.nextInt();  
+        int B = sc.nextInt();  
+
+        int sum = 0;
+
+        for (int l = A; l <= B; l++) {
+            sum += length(l);  
+        }
+
+        System.out.println(sum);
+    }
+
+    public static int length(int N) {
+        int count = 0;
+
+        while (N > 2) {
+            count++; 
+            int next = 0;
+
+            for (int i = 2; i <= N; i++) {
+                if (N % i != 0) {
+                    next = i; 
+                    break;
+                }
+            }
+
+            N = next; 
+        }
+
+        count++;
+        return count;
+    }
+}
+

@@ -1,0 +1,6 @@
+a=int(input())
+b=list(map(int,input().split()))
+if a==sum(b):
+    print(a//2)
+else:
+    print(a-1-b.count(1))    

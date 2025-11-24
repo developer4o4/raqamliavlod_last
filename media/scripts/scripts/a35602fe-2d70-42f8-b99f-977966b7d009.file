@@ -1,0 +1,22 @@
+#include <algorithm>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int m, n;
+	cin >> m >> n;
+	vector<int> a(n);
+	for (int &i : a) cin >> i;
+	int l = 1, r = *max_element(a.begin(), a.end());
+	while (l < r) {
+		int k = (l + r) >> 1, s = 0;
+		for (int i : a) {
+			s += (i + k - 1) / k;
+		}
+		if (s <= m) r = k;
+		else l = k + 1;
+	}
+	cout << l;
+	return 0;
+}

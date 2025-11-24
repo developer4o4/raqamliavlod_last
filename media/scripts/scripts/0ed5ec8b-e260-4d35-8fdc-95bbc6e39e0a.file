@@ -1,0 +1,5 @@
+a=input()
+s='toshkent'.upper()
+for i in s:
+  a.remove(i)
+print(a)

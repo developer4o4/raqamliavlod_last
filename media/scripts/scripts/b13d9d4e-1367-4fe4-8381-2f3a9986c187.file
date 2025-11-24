@@ -1,0 +1,9 @@
+n=int(input())
+if n<38:
+    print(n)
+else:
+    a=n+(5-n%5)
+    if abs(n-a)<=3:
+        print(a)
+    else:
+        print(b)

@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N; // Poygachilar soni
+
+    vector<int> scores(N); // Hozirgi ochkolar ro‘yxati
+    for (int i = 0; i < N; ++i) {
+        cin >> scores[i];
+    }
+
+    // Hozirgi ochkolar orasidan maksimal qiymatni topamiz
+    int maxCurrentScore = *max_element(scores.begin(), scores.end());
+
+    int potentialWinners = 0;
+    for (int i = 0; i < N; ++i) {
+        // Yakuniy poygada g‘olib bo‘lish imkoniyati bor-yo‘qligini tekshiramiz
+        if (scores[i] + N >= maxCurrentScore) {
+            ++potentialWinners;
+        }
+    }
+
+    cout << potentialWinners << endl; // Yakuniy javob
+    return 0;
+}

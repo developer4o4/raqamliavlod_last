@@ -1,0 +1,24 @@
+def solve(cnt, max1, child):
+    req = 0
+    for count in cnt:
+        req += (count + max1 - 1) // max1
+        if req > child:
+            return False
+    return True
+
+def helper(child, cnt):
+    low, high = 1, max(cnt)
+    res = high
+    while low <= high:
+        mid = (low + high) // 2
+        if solve(cnt, mid, child):
+            res = mid
+            high = mid - 1
+        else:
+            low = mid + 1
+    return res
+
+
+N, M = map(int, input().split())
+cnt = [int(input()) for _ in range(M)]
+print(helper(N, cnt))

@@ -1,0 +1,25 @@
+#include <iostream>
+
+int strength(int N) {
+    int result = 0;
+    while (N > 1) {
+        result++;
+        N = (N + 1) / 2;
+    }
+    return result;
+}
+
+int total_strength(int A, int B) {
+    int total = 0;
+    for (int i = A; i <= B; i++) {
+        total += strength(i);
+    }
+    return total;
+}
+
+int main() {
+    int A, B;
+    std::cin >> A >> B;
+    std::cout << total_strength(A, B) << std::endl;
+    return 0;
+}

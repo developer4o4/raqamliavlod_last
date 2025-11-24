@@ -1,0 +1,30 @@
+// Write your code here...
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int n;
+	cin >> n;
+	int a[n];
+	for(int&i:a)cin>>i;
+	sort(a,a+n);
+	int ans = 0;
+	for(int i = 0;i < n;++i){
+		if(i && i < n - 1){
+			int x = a[i] + n;
+			if(x >= (a[0] + n - 1) && x >= (a[n - 1] + 1)) ++ans;
+		}
+		else if(i == n - 1){
+			int x = a[i] + n;
+			if(x >= (a[0] + n - 1) && x >= (a[n - 2] + 1)) ++ans;
+		}
+		else{
+			int x = a[0] + n;
+			if(x >= (a[1] + n - 1) && x >= (a[n - 1] + 1)) ++ans;
+		}
+	}
+	cout << ans;
+	
+}

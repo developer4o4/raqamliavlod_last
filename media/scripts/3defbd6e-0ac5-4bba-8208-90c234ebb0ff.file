@@ -1,0 +1,7 @@
+s=str(input())
+a="TOSHKENT"
+l=""
+for i in range(0, len(s)):
+    if s[i] not in a:
+        l+=s[i]
+print(l)

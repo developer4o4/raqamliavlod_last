@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve(){
+    int n; cin >> n;
+    vector<int> v;
+    for (int i =0 ; i < n ; i++){
+        int x; cin >> x;
+        v.push_back(x);
+    }
+    sort(v.begin(), v.end());
+    for (int i = 0; i < n; i ++){
+        int mx = 0, p = -1, k = n;
+        for (int j = 0; j < n; j++){
+            if (i!=j){
+                k--;
+                mx=max(mx, v[j]+k);
+            }
+        }
+        if (v[i] + n >= mx){
+            cout << n-i;
+            break;
+        }
+    }
+}

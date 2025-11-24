@@ -1,0 +1,11 @@
+# Kiruvchi ma'lumotlar
+word = input("So'zni kiriting: ").strip()
+
+# "TOSHKENT" so'zidagi harflar
+tashkent_letters = set("TOSHKENT")
+
+# Natijaviy so'z
+result = ''.join([char for char in word if char not in tashkent_letters])
+
+# Chiquvchi ma'lumotlar
+print(result)

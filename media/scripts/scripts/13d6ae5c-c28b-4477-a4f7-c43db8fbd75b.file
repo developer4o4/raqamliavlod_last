@@ -1,0 +1,18 @@
+def count_possible_champions(N, scores):
+    # Eng katta ochkoni topamiz
+    max_score = max(scores)
+    # Zarur minimal ochkoni hisoblash
+    min_required_score = max_score + N
+    # Hali ham g'olib bo'lish imkoniyati bo'lganlarni sanash
+    count = 0
+    for score in scores:
+        if score + N >= min_required_score:
+            count += 1
+    return count
+
+# Kirish ma'lumotlarini olish
+N = int(input())  # Poygachilar soni
+scores = [int(input()) for _ in range(N)]  # Har bir poygachining hozirgi ochkolari
+
+# Natijani chop etish
+print(count_possible_champions(N, scores))

@@ -1,0 +1,9 @@
+def min_operations(n, chain_lengths):
+    if n == 1:
+        return 0 
+    return 1
+
+n = int(input())  # Читаем количество цепей
+chain_lengths = list(map(int, input().split()))  
+
+print(min_operations(n, chain_lengths))

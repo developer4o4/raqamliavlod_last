@@ -1,0 +1,154 @@
+// Write your code here...#pragma GCC optimize("O2")
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define int long long
+#define vi vector<int>
+#define ap(x) array<int, x>
+#define vap(x) vector<ap(x)>
+#define vvi vector<vi>
+#define vvvi vector<vvi>
+#define vc vector<char>
+#define vvc vector<vc>
+#define all(x) x.begin(), x.end()
+#define allr(x) x.rbegin(), x.rend()
+
+void fast_io() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+}
+
+ostream& operator<<(ostream& out, vi& a) {
+    for (int i = 0; a.size() > i; i++) {
+        out << a[i] << ' ';
+    }
+    return out;
+}
+
+istream& operator>>(istream& in, vi& a) {
+    for (int i = 0; a.size() > i; i++) {
+        in >> a[i];
+    }
+    return in;
+}
+
+void file_io() {
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+}
+int binpow(int a, int b) {
+    int mod = 1e9 + 7;
+    int res = 1;
+    while (b > 0) {
+        if (b & 1)
+            res = res * a % mod;
+        a = a * a % mod;
+        b >>= 1;
+    }
+    return res;
+}
+
+int isk(int a, int b) {
+    int ans = 0, bit_position = 0;
+
+    while (a > 0) {
+        int a_bit = a % 2;
+        int b_bit = b % 2;
+
+        if (!(a_bit == 1 && b_bit == 1)) {
+            ans += (a_bit << bit_position);
+        }
+
+        a /= 2;
+        b /= 2;
+        bit_position++;
+    }
+    return ans;
+}
+
+bool isprime(int n){
+    if(n < 2) return false;
+    if(n == 2) return true;
+    if(n % 2 == 0) return false;
+    for(int i = 3; i * i <= n; i += 2){
+        if(n % i == 0) return false;
+    }
+    return true;
+}
+
+bool tek(int x, vi arr, int n){
+    int p = n - arr.size();
+    int pov = 0;
+    // cerr << x << ':' << '\n';
+    for(int i = arr.size() - 1; i >= 0; i -= 1){
+        if(arr[i] > x){
+            pov++;
+            int q = 2;
+            while((arr[i]+q-1)/q > x){
+                q ++;
+                pov++;
+            }
+            if(pov > p){
+                return false;
+            }
+        }
+    }
+    if(pov > p){
+        return false;
+    }
+    return true;
+}
+
+void solve() {
+    int n;
+    cin >> n;
+    vi arr;
+    int ones = 0;
+    int x;
+    for(int i = 0; n > i; i++){
+        cin >> x;
+        if(x == 1){
+            ones += 1;
+        }else{
+            arr.push_back(x);
+        }
+    }
+    int ans = 0;
+    bool pt = false;
+    for(int i = 0; arr.size() > i; i++){
+        if(i == arr.size() - 1){
+            continue;
+        }
+        pt = true;
+        if(arr.size() - i >= 2 && ones > 0){
+            ones -= 1;
+            ans += 1;
+        }else{
+            ans += 1;
+        }
+    }
+    if(pt){
+        ans += (ones+1)/2;
+    }else{
+        ans += ones/2;
+    }
+    cout << ans << '\n';
+}
+
+signed main(signed argc, char *argv[]) {
+    clock_t start = clock();
+    // fast_io();
+    if (argc > 1 && string(argv[1]) == "gg") file_io();
+
+    int t = 1;
+    // cin >> t;
+    while (t--) {
+        solve();
+    }
+
+    // cerr << "Vaqt " << double(clock() - start) / double(CLOCKS_PER_SEC) * 1000 << " ms\n";
+    return 0;
+}

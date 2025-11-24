@@ -1,0 +1,18 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;  // Zanjirlar sonini o'qish
+
+    vector<int> lengths(N);  // Zanjirlarning uzunligini saqlash uchun massiv
+    for (int i = 0; i < N; ++i) {
+        cin >> lengths[i];  // Zanjir uzunligini o'qish
+    }
+
+    // Minimal halqalar soni: faqat bitta halqani ochib yopish kerak.
+    cout << 1 << endl;
+
+    return 0;
+}

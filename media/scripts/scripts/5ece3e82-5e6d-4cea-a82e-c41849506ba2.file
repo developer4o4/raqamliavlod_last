@@ -1,0 +1,18 @@
+def solve(n):
+    en = 1  
+    while n != 2: 
+        for i in range(2, n + 1):
+            if n % i != 0:  
+                n = i
+                break
+        en += 1
+    return en
+
+def solve2(a, b):
+    jami = 0
+    for i in range(a, b + 1):
+        jami += solve(i)  
+    return jami
+
+a, b = map(int, input().split())
+print(solve2(a, b))

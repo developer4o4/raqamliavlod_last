@@ -1,0 +1,7 @@
+t = int(input())
+sum1 = 0
+for _ in range(t):
+    a = int(input())
+    d = a%10
+    sum1+=(a//10)**d
+print(sum1)

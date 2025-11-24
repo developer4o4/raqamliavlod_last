@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define int long long
+
+int p(int n, int k) {
+	int s = 1;
+	while (k--) s *= n;
+	return s;
+}
+
+signed main() {
+	int t, s = 0;
+	cin >> t;
+	while (t--) {
+		int n;
+		cin >> n;
+		s += p(n / 10, n % 10);
+	}
+	cout << s;
+	return 0;
+}

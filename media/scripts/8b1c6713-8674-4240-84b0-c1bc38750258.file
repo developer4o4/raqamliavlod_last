@@ -1,0 +1,12 @@
+def minimal_halqalar():
+    import sys
+    input = sys.stdin.read
+    data = input().split()
+
+    n = int(data[0]) 
+    lengths = map(int, data[1:])
+
+    if all(length == 1 for length in lengths):
+        print(1)
+    else:
+        print(n - 1)

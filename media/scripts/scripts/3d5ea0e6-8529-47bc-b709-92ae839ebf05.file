@@ -1,0 +1,6 @@
+def myfunc(input_word):
+    myfunc = set("TOSHKENT")
+    result = ''.join([char for char in input_word if char not in myfunc])
+    return result
+input_word = input().strip()
+print(myfunc(input_word))

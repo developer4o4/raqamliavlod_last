@@ -1,0 +1,6 @@
+a=int(input())
+if a<38:
+  print(a)
+else:
+  if (a%5)==3 or (a%5)==4:print(((a//5)+1)*5)
+  else:print(a)

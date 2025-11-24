@@ -1,0 +1,7 @@
+s = input()
+a = "TOSHKENT"
+ans = ""
+for i in s:
+    if i not in a:
+        ans += i 
+print(ans)

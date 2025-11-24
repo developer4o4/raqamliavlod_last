@@ -1,0 +1,4 @@
+a= input()
+b=set("TOSHKENT")
+c= ''.join([char for char in a if char not in c])
+print(c)

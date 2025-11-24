@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+int main(){
+  
+  char a;
+  while (cin>>a){
+  	if (a=='T' || a=='O' || a=='S' || a=='H' || a=='K' || a== 'E' || a=='N'){
+  		continue;
+  	}
+  	cout<<a;
+  }
+  return 0;
+}

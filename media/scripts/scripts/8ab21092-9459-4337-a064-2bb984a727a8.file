@@ -1,0 +1,23 @@
+def fun(n,m,k):
+    def funk(a):
+        s = 0
+        for i in c:
+            s += (i + a - 1)//a
+            if i > N:
+                return False
+        return True
+    x, y = 1, max(c)
+    while x < right:
+        mid = (x + y)//2
+        if funk(k):
+            y = k
+        else:
+            x = k + 1
+
+    return left
+n,m = map(int,input().split())
+s=[]
+for _ in range(m+1):
+    p = int(input())
+    s.append(p)
+r = fun(n,m,s)

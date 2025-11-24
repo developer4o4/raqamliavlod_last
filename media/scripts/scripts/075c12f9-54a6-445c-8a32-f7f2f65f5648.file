@@ -1,0 +1,54 @@
+// Write your code here...#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define str string
+#define endl '\n'
+#define fs first
+#define ss second
+#define all(a) a.begin(), a.end()
+#define print(a) for(auto x : a) cout << x << ' '; cout << endl;
+#define printmp(a) for(auto x : a) cout << x[0] << ' ' << x[1] << endl;
+
+const int mod = 1e9 + 7;
+
+void solve(){
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(m);
+    for(int i = 0; i < m; i ++)
+        cin >> a[i];
+
+    auto good = [&](int x){
+        int cnt = 0;
+        for(int i = 0; i < m; i ++)
+            cnt += (x + a[i] - 1) / x;
+        return cnt <= n;
+    };
+
+    int left = 1, right = 1e9;
+    while(left < right){
+        int mid = (left + right) >> 1;
+        if(good(mid))
+            right = mid;
+        else
+            left = mid + 1;
+    }
+    cout << left;
+}
+
+signed main(){
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    #ifdef Javohir
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
+    int t = 1;
+    // cin >> t;
+    while(t --){
+        solve();
+        if(t > 0)
+            cout << endl;
+    }
+}

@@ -1,0 +1,10 @@
+# Ikkita butun sonni o'qish
+A, B = map(int, input().split())
+
+# Taqqoslashni amalga oshirish
+if A > B:
+    print(">")
+elif A == B:
+    print("=")
+else:
+    print("<")

@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+#define all(a) a.begin(), a.end()
+#define rall(a) a.rbegin(), a.rend()
+#define ss second
+#define ff first
+#define pb push_back
+
+  
+void solve(){
+    int n, m; cin >> n >> m;
+    vector<int> v(m);
+    for(int i = 0; i < m; i++) cin >> v[i];
+    sort(rall(v));
+    if(n == m){
+        cout << v[0];
+        return;
+    }
+
+    int k = n - m;
+    v.pb(1);
+    for(int i = 0; i < m && k > 0; i++){
+        int x = 1;
+
+        while(k - x >= 0 && (v[i] + x) / (x + 1) >= v[i + 1]) x++;
+
+        x = min(x + 1, k + 1);
+        for(int i = 0; i < v[i] % x; i++) v.pb(v[i] / x + 1);
+        for(int i = 0; i < x - (v[i] % x) - 1; i++) v.pb(v[i] / x);
+        //cout << "x = " << x << ' ' << v[i] << ' ' << k << endl;
+        v[i] /= x; k++; k -= x;
+    }
+
+    // for(int &i : v) cout << i << ' ';
+    // cout << endl;
+    int ans = *max_element(all(v));
+    cout << ans;
+}
+  
+signed main() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    int t = 1; //cin >> t;
+    while(t--){
+        solve(); //cout << endl;
+    }
+    return 0;
+}

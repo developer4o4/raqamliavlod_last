@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+int main(){
+	string t="TOSHKENT";
+	string s;
+	getline(cin,s);
+	string ans;
+	
+	for (char c:s){
+		if (t.find(c)==string::npos) ans+=c;
+	}
+	cout << ans;
+}

@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main() {
+	ll a;
+	string c;
+	cin >> c;
+	a = size(c);
+	for(int i = 0; i < a; i++ ){
+		if(c[i] == 'T' || c[i] == 'O' || c[i] == 'S' || c[i] == 'H' || c[i] == 'K' || c[i] == 'E' || c[i] == 'N'){
+			c.erase(i, 1);
+			i--;
+			a--;
+		}
+	}
+	cout << c;
+}

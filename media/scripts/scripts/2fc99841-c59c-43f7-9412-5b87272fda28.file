@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+// Funksiya: Berilgan maksimal hasad darajasida konfetlarni taqsimlash mumkinligini tekshiradi
+bool canDistribute(const vector<int>& candies, int children, int maxCandies) {
+    int count = 0;
+    for (int c : candies) {
+        count += (c + maxCandies - 1) / maxCandies; // Har bir bolaga kerakli minimal son
+        if (count > children) return false;        // Agar bolalar sonidan oshsa, taqsimlash mumkin emas
+    }
+    return true;
+}
+
+// Minimal hasad darajasini topish
+int minimalJealousy(const vector<int>& candies, int children) {
+    int left = 1, right = *max_element(candies.begin(), candies.end());
+    int result = right;
+
+    while (left <= right) {
+        int mid = (left + right) / 2;
+        if (canDistribute(candies, children, mid)) {
+            result = mid;  // Agar taqsimlash mumkin bo‘lsa, hasad darajasini kamaytiramiz
+            right = mid - 1;
+        } else {
+            left = mid + 1;  // Aks holda hasad darajasini oshiramiz
+        }
+    }
+
+    return result;
+}
+
+int main() {
+    int M, N;
+    cout << "Konfet ranglari soni (M): ";
+    cin >> M;
+
+    vector<int> candies(M);
+    cout << "Har bir rangdagi konfetlar sonini kiriting: ";
+    for (int i = 0; i < M; ++i) {
+        cin >> candies[i];
+    }
+
+    cout << "Bolalar soni (N): ";
+    cin >> N;
+
+    // Minimal hasad darajasini hisoblash
+    cout << minimalJealousy(candies, N) << endl;
+
+    return 0;
+}

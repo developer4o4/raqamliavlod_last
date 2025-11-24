@@ -1,0 +1,26 @@
+arr = []
+for i in range(int(input())): arr.append(input())
+cnt = 0
+s = input()
+for i in arr:
+	if len(i) == len(s):
+		ok = 1
+		for j in range(len(s)):
+			if i[j] == 'a' or  i[j] == 'b' or i[j] == 'c':
+				if s[j] != '2': ok = 0
+			elif i[j] == 'd' or i[j] == 'e' or i[j] == 'f':
+				if s[j] != '3': ok = 0
+			elif i[j] == 'g' or i[j] == 'h' or i[j] == 'i':
+				if s[j] != '4': ok = 0
+			elif i[j] == 'j' or i[j] == 'k' or i[j] == 'l':
+				if s[j] != '5': ok = 0
+			elif i[j] == 'm' or i[j] == 'n' or i[j] == 'o':
+				if s[j] != '6': ok = 0
+			elif i[j] == 'p' or i[j] == 'q' or i[j] == 'r' or i[j] == 's':
+				if s[j] != '7': ok = 0
+			elif i[j] == 't' or i[j] == 'u' or i[j] == 'v':
+				if s[j] != '8': ok = 0
+			else:
+				if s[j] != '9': ok = 0
+		cnt += ok
+print(cnt)

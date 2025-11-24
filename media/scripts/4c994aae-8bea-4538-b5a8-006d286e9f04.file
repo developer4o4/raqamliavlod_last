@@ -1,0 +1,12 @@
+n = int(input())
+ans = 0
+for i in range(n):
+    s = input()
+    k = s[len(s)-1]
+    c = "";
+    for i in range(len(s)-1):
+        c += s[i]
+
+    x = int(c)
+    ans += x ** int(k)
+print(ans)

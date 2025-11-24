@@ -1,0 +1,7 @@
+n=input()
+d=[]
+s=['T','O','SH','K','E','N','S','H']
+for i in range(len(n)):
+    if n[i] not in s:
+        d.append(n[i])
+print(*d,sep='')

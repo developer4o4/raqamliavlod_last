@@ -1,0 +1,12 @@
+a=int(input())
+l=list(map(int,input().split()))
+b=int(input())
+res=[]
+for i in range(len(l)):
+    for x in range(i+1,len(l)+1):
+        res.append(sum(l[i:x])//len(l[i:x]))
+result=0
+for i in res:
+    if i>=b:
+        result=result+1
+print(result)

@@ -1,0 +1,7 @@
+n=input()
+w=""
+r="TOSHKENT"
+for i in n:
+    if i not in r:
+        w+=i
+print(w)

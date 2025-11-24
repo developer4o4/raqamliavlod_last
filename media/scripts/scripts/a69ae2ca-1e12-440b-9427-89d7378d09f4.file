@@ -1,0 +1,11 @@
+def count_possible_champions(N, scores):
+    max_score = max(scores)
+    min_required_score = max_score + N
+    count = 0
+    for score in scores:
+        if score + N >= min_required_score:
+            count += 1
+    return count
+N = int(input())  # Poygachilar soni
+scores = [int(input()) for _ in range(N)]  # Har bir poygachining hozirgi ochkolari
+print(count_possible_champions(N, scores))

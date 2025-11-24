@@ -1,0 +1,3 @@
+a=input()
+z=''.join([char for char in a if char not in "TOSHKENT"])
+print(z)

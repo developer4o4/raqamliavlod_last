@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Kirish: zanjirlar sonini o'qish
+    int N;
+    cin >> N;
+
+    // Agar zanjirlar soni 1 bo'lsa, hech qanday harakat talab qilinmaydi
+    if (N <= 1) {
+        cout << 0 << endl;
+    } else {
+        // Kerakli minimal ochish va yopishlar sonini hisoblash
+        int result = 2 * (N - 1);
+        cout << result << endl;
+    }
+
+    return 0;
+}

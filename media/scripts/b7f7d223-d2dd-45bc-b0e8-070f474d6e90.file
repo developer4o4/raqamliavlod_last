@@ -1,0 +1,28 @@
+// Write your code here...#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    int N;
+    std::cin >> N;
+
+    std::vector<int> scores(N);
+    for (int i = 0; i < N; ++i) {
+        std::cin >> scores[i];
+    }
+
+    // Find the current maximum score
+    int current_max = *std::max_element(scores.begin(), scores.end());
+
+    // Calculate the number of racers who can still win
+    int possible_winners = 0;
+    for (int i = 0; i < N; ++i) {
+        if (scores[i] + N >= current_max) {
+            ++possible_winners;
+        }
+    }
+
+    std::cout << possible_winners << std::endl;
+
+    return 0;
+}

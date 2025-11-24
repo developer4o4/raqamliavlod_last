@@ -1,0 +1,3 @@
+kuchlar = list(map(int, input().split()))
+kuchlar_yigindisi = sum(kuchlar)
+print(kuchlar_yigindisi)

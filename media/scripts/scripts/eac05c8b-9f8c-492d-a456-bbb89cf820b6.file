@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;  // Zanjirlar sonini o'qish
+
+    vector<int> lengths(N);
+    
+    // Zanjirlar uzunligini o'qish
+    for (int i = 0; i < N; i++) {
+        cin >> lengths[i];
+    }
+
+    int result = 1;  // Minimal halqalar soni: har doim faqat bitta halqa ochish va yopish kerak
+    cout << result << endl;
+
+    return 0;
+}

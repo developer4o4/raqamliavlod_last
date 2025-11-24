@@ -1,0 +1,15 @@
+a=int(input())
+l=[]
+for i in range(1,a+1):
+    l.append(int(input()))
+l.sort()
+b=l[::-1]
+s=[]
+for i in b:
+  if i not in s:
+    s.append(i)
+res=0
+for i in s:
+  if res<3:
+    res=res+l.count(i)
+print(res)

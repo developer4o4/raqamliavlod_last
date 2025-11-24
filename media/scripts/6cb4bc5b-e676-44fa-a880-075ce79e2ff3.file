@@ -1,0 +1,6 @@
+n=int(input())
+ans=0
+for i in range(n):
+    x = int(input())
+    ans += (x//10)**(x%10)
+print(ans)

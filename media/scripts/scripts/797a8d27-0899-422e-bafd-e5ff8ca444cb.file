@@ -1,0 +1,8 @@
+a,b = map(int,input().split())
+if a>b:
+    x = ">"
+if a==b:
+    x = "="
+if a<b:
+    x = "<"
+print(x)

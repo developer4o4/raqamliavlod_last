@@ -1,0 +1,9 @@
+def ochir_toshkent_hariflarni(harif):
+    tashkent_hariflar = set("TOSHKENT")
+    result = ''.join([char for char in harif if char not in tashkent_hariflar])
+    return result
+
+input_data = ["YANGITOSHKENT", "TATU"]
+output_data = [ochir_toshkent_hariflarni(harif) for harif in input_data]
+for output in output_data:
+    print(output)

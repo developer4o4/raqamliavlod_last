@@ -1,0 +1,22 @@
+n = int(input())
+arr = []
+for i in range(n):
+    a = int(input())
+    arr.append(a)
+
+arr.sort(reverse=True)
+p = 1
+max1 = 0
+check = 0
+for x in range(len(arr)):
+    if arr[x]+p > max1:
+        max1 = arr[x]+p
+
+    if arr[x]+n < max1:
+        check = 1
+        print(x)
+        break
+    p += 1
+
+if check == 0:
+    print(n)

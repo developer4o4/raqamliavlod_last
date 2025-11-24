@@ -1,0 +1,5 @@
+s = input()
+ss = 'TOSHKENT'
+for i in s:
+    if i not in ss:
+        print(i, end='')

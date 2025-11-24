@@ -1,0 +1,5 @@
+n = int(input())  
+b = [int(input()) for _ in range(n)] 
+m = max(b)
+c = b.count(m)
+print(c)

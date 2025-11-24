@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int a;
+    cin >> a;
+    if (a < 38)
+        cout << a;
+    else
+        cout << a + (a % 5 > 2 ? 5 - a % 5 : 0);
+}

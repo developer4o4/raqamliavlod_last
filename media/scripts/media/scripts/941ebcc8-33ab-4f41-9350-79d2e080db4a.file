@@ -1,0 +1,10 @@
+word = input().strip()
+
+if len(word) < 3 or len(word) > 100 or not word.isupper():
+    print("Kiritilgan so'z noto'g'ri. Kamida 3 ta va eng ko'pi bilan 100 ta katta lotin harfidan iborat bo'lishi kerak.")
+else:
+    rl = "TOSHKENT"
+
+    result = ''.join([ch for ch in word if ch not in rl])
+
+    print(result)

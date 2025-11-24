@@ -1,0 +1,8 @@
+ans=0
+a=int(input())
+for i in range(a):
+    b=int(input())
+if a-1%2==0:
+    print(a-1)
+else:
+    print(a)

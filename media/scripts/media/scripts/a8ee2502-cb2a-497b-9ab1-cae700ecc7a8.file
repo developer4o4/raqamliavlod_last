@@ -1,0 +1,6 @@
+def remove(word):
+    t = "TOSHKENT"
+    r = ''.join([char for char in word if char not in t])
+    return r
+w = input().strip()
+print(remove(w))

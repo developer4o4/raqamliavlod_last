@@ -1,0 +1,20 @@
+import math
+def minimal_jealousy(n, m, a):
+    left, right = 1, max(a)
+    answer = right
+    while left <= right:
+        mid = (left + right) // 2
+        total_kids = sum(math.ceil(c / mid) for c in a)
+
+        if total_kids <= n:
+            answer = mid
+            right = mid - 1
+        else:
+            left = mid + 1
+
+    return answer
+n, m = map(int, input().split())
+a = [int(input()) for i in range(m)]
+
+result = minimal_jealousy(n, m, a)
+print("Minimal hasad darajasi:", result)

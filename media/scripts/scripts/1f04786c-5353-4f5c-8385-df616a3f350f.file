@@ -1,0 +1,15 @@
+n = int(input())
+q = []
+for _ in range(n+1):
+    l = int(input())
+    q.append(l)
+j=0
+arr1 = []
+for i in sorted(q):
+    for k in range(0,n-1):
+        arr1.append(i+(n-k))
+m = max(arr1)
+for x in arr1:
+    if x+n>=m:
+        j+=1 
+print(j)

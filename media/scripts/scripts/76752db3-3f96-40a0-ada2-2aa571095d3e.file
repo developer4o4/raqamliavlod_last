@@ -1,0 +1,4 @@
+word = input().strip()
+taskent_letters = set("TOSHKENT")
+result = ''.join([char for char in word if char not in taskent_letters])
+print(result)

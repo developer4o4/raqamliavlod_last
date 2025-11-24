@@ -1,0 +1,6 @@
+s=input()
+s=s.lower()
+ss="toshkent"
+for i in s:
+   if i not in ss:
+       print(i.upper(),end="")

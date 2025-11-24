@@ -1,0 +1,8 @@
+a=int(input())
+l=[]
+for i in range(1,a+1):
+    l.append(int(input()))
+res=0
+for i in l:
+    res=res+(int(str(i)[:-1])**int(str(i)[-1]))
+print(res)

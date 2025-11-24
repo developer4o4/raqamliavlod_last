@@ -1,0 +1,8 @@
+N = int(input())
+scores = [int(input()) for _ in range(N)]
+
+avg = sum(scores) / N
+
+winc = sum(1 for s in scores if s >= avg)
+
+print(winc)

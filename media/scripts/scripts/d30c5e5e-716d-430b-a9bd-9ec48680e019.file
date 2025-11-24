@@ -1,0 +1,8 @@
+a=str(input())
+arr=list(a)
+r=''
+k='TOSHKENT'
+for i in arr:
+    if not(i in k):
+        r=r+i
+print(r)

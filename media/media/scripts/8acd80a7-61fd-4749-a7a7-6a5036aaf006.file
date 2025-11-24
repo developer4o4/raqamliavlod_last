@@ -1,0 +1,12 @@
+s = input()
+m1 = eval(s.replace('x','-1'))
+m2 = eval(s.replace('x','1'))
+oh = (m2 + m1)//2
+noh = (m2 - m1) // 2
+ans = str(oh) + ' + x * ' +  str(noh)
+p,mod = map(int,input().split())
+for i in range(mod):
+    u = eval(s.replace('x',str(i)))
+    if u % mod == p:
+        print(i)
+        exit()

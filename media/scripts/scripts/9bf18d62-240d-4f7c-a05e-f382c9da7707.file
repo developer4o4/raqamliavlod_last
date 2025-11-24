@@ -1,0 +1,39 @@
+// Write your code here...#include <bits/stdc++.h>
+using namespace std;
+
+#define int int64_t
+#define all(x) (x).begin(), (x).end()
+#define rall(x) (x).rbegin(), (x).rend()
+#define vi vector
+
+void solve() {
+	int n; cin >> n;
+	vector<string> a(n);
+	for(auto&x:a) cin >> x;
+	string s; cin >> s;
+	map<char, char> mp;
+	for(char c = 'a'; c <= 'o'; ++ c) {
+		mp[c] = (c-97) / 3 + 2 + 48;
+	}
+	for(char c:"pqrs")mp[c]='7';
+	for(char c:"tuv")mp[c]='8';
+	for(char c:"wxyz")mp[c]='9';
+	// for(auto[x,y]:mp) cout << x << ' ' << y << '\n';
+	int ans = 0;
+	for(auto& x:a) {
+		string nw="";
+		for(char c:x) nw += mp[c];
+		x = nw;
+		ans += x == s;
+	}
+	cout << ans;
+}	
+int32_t main() {
+	cin.tie(nullptr) -> sync_with_stdio(false);
+	int tt = 1;
+	// cin >> tt;
+	while(tt--) {
+		solve();
+		cout << '\n';
+	}
+}

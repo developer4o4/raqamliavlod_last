@@ -1,0 +1,10 @@
+a=int(input())
+l=[0]*a
+for i in range(a):
+    l[i]=int(input())
+m=max(l)
+s=0
+s+=l.count(m)
+s+=l.count(m-1)
+s+=l.count(m-2)
+print(s)

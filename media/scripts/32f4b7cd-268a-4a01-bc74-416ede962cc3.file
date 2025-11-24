@@ -1,0 +1,10 @@
+def find_min_openings_and_closings(N, lengths):
+    total_rings = sum(lengths)
+    result = total_rings - N
+    return result
+
+N = int(input())
+lengths = list(map(int, input().split()))
+
+result = find_min_openings_and_closings(N, lengths)
+print(result)

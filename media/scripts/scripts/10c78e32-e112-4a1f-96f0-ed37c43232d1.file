@@ -1,0 +1,23 @@
+n, m = map(int, input().split())
+arr = [int(input()) for _ in range(m)]
+
+def f(mx):
+    r = 0
+    for i in arr:
+        r += (i + mx - 1) // mx
+        if r > n:
+            return False
+    return True
+
+l, r = 1, max(arr)
+ans = r
+
+while l <= r:
+    mid = (l + r) // 2
+    if f(mid):
+        ans = mid
+        r = mid - 1
+    else:
+        l = mid + 1
+
+print(ans)

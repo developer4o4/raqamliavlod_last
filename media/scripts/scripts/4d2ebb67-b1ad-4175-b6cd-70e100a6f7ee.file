@@ -1,0 +1,7 @@
+n=input()
+res=""
+for i in n:
+    if not i in "TOSHKENT":
+        res+=i
+
+print(res)

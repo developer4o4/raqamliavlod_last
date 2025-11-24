@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+#define all(a) a.begin(), a.end()
+#define rall(a) a.rbegin(), a.rend()
+#define ss second
+#define ff first
+#define pb push_back
+
+  
+void solve(){
+    string s; cin >> s;
+    string t = "TOSHKENT";
+    string ans = "";
+    for(char ch : s){
+        if(t.find(ch) == string:: npos) ans += ch;
+    }
+    cout << ans;
+}
+  
+signed main() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    int t = 1; //cin >> t;
+    while(t--){
+        solve(); //cout << endl;
+    }
+    return 0;
+}

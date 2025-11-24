@@ -1,0 +1,9 @@
+import sys
+input = sys.stdin.read
+data = input().split
+N = int(data[0])
+ochkolar = list(map(int, data[1:]))
+max = max(ochkolar)
+result = max+N
+imkoniyatli = sum(1 for ochko in ochkolar if ochko+N>=result)
+print(imkoniyatli)

@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int n, m = 0, k;
+	cin >> n;
+	vector<int> a(n);
+	k = n / 2;
+	for (int &i : a) cin >> i;
+	n = (n + 1) / 2;
+	while (n > 1) {
+		m += n;
+		n = (n + 1) / 2;
+	}
+	for (int i : a) if (i == 1) m--;
+	cout << max(m, k);
+	return 0;
+}
+/*
+5
+1 2 3 4 5
+
+*/

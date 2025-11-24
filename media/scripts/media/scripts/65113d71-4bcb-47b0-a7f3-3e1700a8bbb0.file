@@ -1,0 +1,33 @@
+def min_operations_with_pointers(n, chain_lengths):
+    # Сортируем цепочки по количеству колец
+    chain_lengths.sort()
+
+    # Инициализация двух указателей
+    start = 0
+    end = n - 1
+
+    operations = 0
+
+    while start < end:
+        if chain_lengths[start] == 1:
+            # Проверяем, можно ли взять две цепочки с конца
+            if end - 1 > start:
+                end -= 2  # Соединяем две цепочки с конца
+            else:
+                end -= 1  # Соединяем одну цепочку
+        else:
+            end -= 1  # Соединяем текущую цепочку с одной цепочкой с конца
+
+        # Сдвигаем начальный указатель
+        start += 1
+        # Увеличиваем счетчик операций
+        operations += 1
+
+    return operations
+
+# Чтение входных данных
+n = int(input())  # Количество цепочек
+chain_lengths = list(map(int, input().split()))  # Длины цепочек
+
+# Вывод результата
+print(min_operations_with_pointers(n, chain_lengths))

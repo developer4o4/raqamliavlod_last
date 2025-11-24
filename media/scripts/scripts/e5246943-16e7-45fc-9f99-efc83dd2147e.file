@@ -1,0 +1,5 @@
+a=int(input())
+l=[0]*a
+for i in l:
+    i=int(input())
+print(a-1)

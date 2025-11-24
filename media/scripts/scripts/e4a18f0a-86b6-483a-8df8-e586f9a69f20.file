@@ -1,0 +1,6 @@
+a=input()
+b="TOSHKENT"
+for i in b:
+    if a.count(i) != 0:
+        a=a.replace(i,'')
+print(a)

@@ -1,0 +1,46 @@
+n=int(input())
+arr=[]
+l=[]
+ikki='ABCabc'
+uch='DEFdef'
+tort='GHIghi'
+besh='JKLjkl'
+olti='MNOmno'
+yetti='PQRSpqrs'
+sakkiz='TUVtuv'
+toqqiz='WXYZwxyz'
+s=0
+for i in range(n):
+    d=str(input())
+    arr.append(d)
+q=str(input())
+for i in q:
+    if i=='2':
+        l.append(ikki)
+    elif i=='3':
+        l.append(uch)
+    elif i=='4':
+        l.append(tort)
+    elif i=='5':
+        l.append(besh)
+    elif i=='6':
+        l.append(olti)
+    elif i=='7':
+        l.append(yetti)
+    elif i=='8':
+        l.append(sakkiz)
+    elif i=='9':
+        l.append(toqqiz)
+for n in arr:
+    q=0
+    t=0
+    k=len(n)
+    sa=str(n)
+    for m in range(k):
+        if (sa[q] in l[q]):
+            t=t+1
+        q=q+1
+    if t==k:
+        s=s+1
+print(s)
+    

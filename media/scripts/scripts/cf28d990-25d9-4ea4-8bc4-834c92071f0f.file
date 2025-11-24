@@ -1,0 +1,9 @@
+n=int(input())
+ls=[int(input()) for _ in range(n)]
+j=sorted(list(set(ls)))
+k=j[len(j)//2]
+ans=0
+for i in ls:
+    if i>=k:
+        ans+=1
+print(ans)

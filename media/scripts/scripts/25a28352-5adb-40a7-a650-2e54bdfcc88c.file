@@ -1,0 +1,4 @@
+word = input().strip()
+remove_letters = "TOSHKENT"
+result = ''.join([char for char in word if char not in remove_letters])
+print(result)

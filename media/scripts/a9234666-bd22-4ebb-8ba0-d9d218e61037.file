@@ -1,0 +1,4 @@
+a = input().strip()
+b = "TOSHKENT"
+r = word.translate(str.maketrans('', '', b))
+print(r)

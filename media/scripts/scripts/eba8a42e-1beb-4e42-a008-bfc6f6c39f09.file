@@ -1,0 +1,10 @@
+N = int(input())
+l = [int(input()) for _ in range(N)]  
+
+
+mx = max(l) + N
+res = 0
+for i in l:
+    if i + N >= mx:
+        res += 1
+print(res*2)

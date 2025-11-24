@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	set<char> s{'T', 'O', 'S', 'H', 'K', 'E', 'N'};
+	string a;
+	cin >> a;
+	for (char i : a) {
+		if (s.count(i)) continue;
+		cout << i;
+	}
+	return 0;
+}

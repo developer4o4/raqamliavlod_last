@@ -1,0 +1,5 @@
+a=input()
+l=["T","O","S","H","K","R","N","T"]
+for i in l:
+    a=a.replace(i,"")
+print(a)

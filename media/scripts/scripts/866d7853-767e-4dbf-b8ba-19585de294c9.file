@@ -1,0 +1,7 @@
+a=int(input())
+if a<38:
+    print(a)
+elif a==38:
+    print(a)
+else:
+    print(a+(5-a%5))        

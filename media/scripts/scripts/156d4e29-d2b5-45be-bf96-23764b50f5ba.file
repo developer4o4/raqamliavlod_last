@@ -1,0 +1,30 @@
+package main
+
+import "fmt"
+
+func main() {
+    var a int
+    fmt.Scan(&a)
+    
+    b := make([]int, a)
+    for i := 0; i < a; i++ {
+        fmt.Scan(&b[i])
+    }
+    
+    sum := 0
+    for _, value := range b {
+        sum += value
+    }
+    
+    if a == sum {
+        fmt.Println(a / 2)
+    } else {
+        count := 0
+        for _, value := range b {
+            if value == 1 {
+                count++
+            }
+        }
+        fmt.Println(a - 1 - count)
+    }
+}

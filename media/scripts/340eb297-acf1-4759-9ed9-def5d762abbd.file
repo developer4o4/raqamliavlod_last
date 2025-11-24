@@ -1,0 +1,9 @@
+a,b=map(int,input().split())
+k=""
+if a>b:
+    k=">"
+if a<b:
+    k="<"
+if a==b:
+    k="="
+print(k)

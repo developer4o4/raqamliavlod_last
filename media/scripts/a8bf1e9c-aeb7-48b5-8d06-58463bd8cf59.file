@@ -1,0 +1,17 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+{
+    string name;
+    int a;
+    cin>>name;
+    a=name.length();
+    for ( int i=0; i<a; i++ )
+    {
+        if ( name[i]!='T' && name[i]!='O' && name[i]!='S' && name[i]!='H' && name[i]!='K' && name[i]!='E' && name[i]!='N')
+        {
+            cout<<name[i];
+        }
+    }
+}

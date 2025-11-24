@@ -1,0 +1,28 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >>n;
+    if (0<=n && n<38) {
+        cout<< n;
+        return 0;
+    }
+    if(n%5>2){
+        cout << n/5*5+5;
+    }
+    else{
+        cout<< n;
+    }
+    return 0;
+}

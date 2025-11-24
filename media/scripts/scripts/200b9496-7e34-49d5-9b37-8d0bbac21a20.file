@@ -1,0 +1,15 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    string a; cin >> a;
+    for(int i=0; i<a.size(); i++){
+        if(a[i]!='T' && a[i]!='O' && a[i]!='S' && a[i]!='H' && a[i]!='K' && a[i]!='E' && a[i]!='N'){
+            cout << a[i];
+        }
+    }
+    return 0;
+}

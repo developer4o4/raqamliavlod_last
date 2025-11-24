@@ -1,0 +1,13 @@
+a=int(input())
+arr=list(map(int,input().split()))
+k=a-1
+s=arr.count(1)
+j=0
+while k!=0:
+    if s>0:
+        k=k-2
+        s=s-1
+    else:
+        k=k-1
+    j=j+1
+print(j)

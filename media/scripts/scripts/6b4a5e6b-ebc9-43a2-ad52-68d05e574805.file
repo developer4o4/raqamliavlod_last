@@ -1,0 +1,5 @@
+def javoblar(n, zu):
+    return 1 if all(l==1 for l in zu) else n - 1
+n=int(input())
+zu=list(map(int, input().split()))
+print(javoblar(n, zu))

@@ -1,0 +1,21 @@
+
+input_file = "INPUT.TXT"
+output_file = "OUTPUT.TXT"
+
+
+with open(input_file, "r") as file:
+    grade = int(file.read().strip())
+
+
+if grade < 38:
+    rounded_grade = grade
+else:
+    next_multiple_of_5 = (grade + 4) // 5 * 5
+    if next_multiple_of_5 - grade < 3:
+        rounded_grade = next_multiple_of_5
+    else:
+        rounded_grade = grade
+
+
+with open(output_file, "w") as file:
+    file.write(str(rounded_grade))

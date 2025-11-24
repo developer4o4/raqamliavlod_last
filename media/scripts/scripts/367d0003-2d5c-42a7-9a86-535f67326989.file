@@ -1,0 +1,3 @@
+N, M = map(int, input().split())
+wealth = [int(input()) for _ in range(N)]
+print(max(wealth) - min(wealth))

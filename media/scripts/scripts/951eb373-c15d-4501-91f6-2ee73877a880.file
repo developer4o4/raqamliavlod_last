@@ -1,0 +1,18 @@
+def strength(n):
+    length = 1  # ketma-ketlikning boshlang'ich uzunligi
+    while n != 2:
+        # n ning eng kichik bo'luvchisini topish
+        for i in range(2, n + 1):
+            if n % i == 0:
+                n = n // i
+                length += 1
+                break
+    return length
+def strength_sum(A, B):
+    total_strength = 0
+    for num in range(A, B + 1):
+        total_strength += strength(num)
+    return total_strength
+A = int(input())
+B = int(input())
+print(strength_sum(A, B))

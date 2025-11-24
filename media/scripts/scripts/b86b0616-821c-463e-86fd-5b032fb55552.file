@@ -1,0 +1,12 @@
+score = int(input())
+
+def round_score(score):
+    if score < 38:
+        return score
+    next_multiple_of_5 = (score + 4) // 5 * 5
+    if next_multiple_of_5 - score < 3:
+        return next_multiple_of_5
+    else:
+        return score
+final_score = round_score(score)
+print(final_score)

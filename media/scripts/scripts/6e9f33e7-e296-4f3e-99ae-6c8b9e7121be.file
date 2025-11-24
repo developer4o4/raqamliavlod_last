@@ -1,0 +1,17 @@
+def chempionlik_imkoniyati(N, ochkolar):
+    eng_katta_hozirgi = max(ochkolar)
+    maksimal_qoshiladigan = N
+    imkoniyatlar_soni = 0
+    
+    for ochko in ochkolar:
+        maksimal_ochko = ochko + maksimal_qoshiladigan
+        if maksimal_ochko >= eng_katta_hozirgi:
+            imkoniyatlar_soni += 1
+
+    return imkoniyatlar_soni
+
+
+N = int(input())  
+ochkolar = [int(input()) for _ in range(N)]
+
+print(chempionlik_imkoniyati(N, ochkolar))

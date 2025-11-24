@@ -1,0 +1,26 @@
+def can_distribute(candies, num_children, max_jealousy):
+    required_children = 0
+    for count in candies:
+        required_children += -(-count // max_jealousy)  # Shu sonni yuqoriga yaxlitlash
+        if required_children > num_children:
+            return False
+    return True
+
+def minimal_jealousy(num_children, num_colors, candies):
+    left, right = 1, max(candies)  # Hasad darajasi uchun qidiruv oralig‘i
+    result = right
+    while left <= right:
+        mid = (left + right) // 2
+        if can_distribute(candies, num_children, mid):
+            result = mid  # Yangi minimal qiymat
+            right = mid - 1
+        else:
+            left = mid + 1
+    return result
+
+# Kirish ma'lumotlari
+M, N = map(int, input().split())
+candies = [int(input()) for _ in range(N)]
+
+# Natijani chiqarish
+print(minimal_jealousy(M, N, candies))

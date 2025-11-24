@@ -1,0 +1,7 @@
+a = input()
+h = "TOSHKENT"
+result = ""
+for i in a:
+    if i not in h: 
+        result += i
+print(result)

@@ -1,0 +1,8 @@
+from math import*
+n,m = map(int,input().split())
+s = 0
+for _ in range(n+1):
+    k = int(input())
+    s+=k
+d = round(s/n)
+print(d)

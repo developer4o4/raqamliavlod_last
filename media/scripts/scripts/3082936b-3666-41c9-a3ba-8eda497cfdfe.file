@@ -1,0 +1,9 @@
+n = int(input())  
+lengths = list(map(int, input().split())) 
+
+total_loops = sum(lengths) - len(lengths)
+
+if total_loops <= len(lengths):
+    print(1)
+else:
+    print(total_loops)

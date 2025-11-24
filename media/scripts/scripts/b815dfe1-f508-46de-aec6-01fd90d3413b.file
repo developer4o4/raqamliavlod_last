@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int N, M;
+    cin >> N >> M;
+    
+    vector<int> candies(M);
+    for (int i = 0; i < M; ++i) {
+        cin >> candies[i];
+    }
+    
+    // Binary search on the maximum number of candies any child can receive
+    int left = 1, right = *max_element(candies.begin(), candies.end());
+    int result = right;
+    
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        int childrenNeeded = 0;
+        
+        for (int i = 0; i < M; ++i) {
+            childrenNeeded += (candies[i] + mid - 1) / mid;  // This is ceil(candies[i] / mid)
+        }
+        
+        if (childrenNeeded <= N) {
+            result = mid;
+            right = mid - 1;
+        } else {
+            left = mid + 1;
+        }
+    }
+    
+    cout << result << endl;
+    return 0;
+}

@@ -1,0 +1,17 @@
+
+def count_eligible_champions(N, races):
+    points = [0] * N
+    for race in races:
+        for i, position in enumerate(race):
+            points[position - 1] += (N - i) 
+    max_points = max(points)
+    eligible_champions = points.count(max_points)
+
+    return eligible_champions
+
+N = int(input())
+
+races = list(map(int,input().split()))
+
+result = count_eligible_champions(N, races)
+print(result)

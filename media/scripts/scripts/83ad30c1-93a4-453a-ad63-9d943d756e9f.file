@@ -1,0 +1,11 @@
+s = input()
+m1 = eval(s.replace('x','-1'))
+m2 = eval(s.replace('x','1'))
+oh = (m2 + m1)//2
+noh = (m2 - m1) // 2
+p,mod = map(int,input().split())
+for x in range(mod):
+    s = oh + noh * x
+    if s % mod == p:
+        print(x)
+        exit()

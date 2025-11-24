@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    int n;
+    cin >> n;
+    vector <int> pref(n), suff(n), arr(n);
+    for(int i = 0; n > i; i++){
+        cin >> arr[i];
+    }
+    sort(arr.begin(), arr.end());
+    for(int i = 0; n > i; i++){
+        if(i)
+            pref[i] = max(arr[i]+(n-i-1), pref[i-1]);
+        else pref[i] = arr[i]+(n-i-1);
+    }
+    suff[n-1] =  arr[n-1] + (1);
+    for(int i = n - 2; i >= 0; i-=1){
+        suff[i] = max(arr[i] + (n - i), suff[i+1]);
+    }
+    int ans = 0;
+    for(int i = 0; n > i; i++){
+        if(arr[i] + (n) >= pref[i] && arr[i] + n >= suff[i]){
+            ans += 1;
+        }
+    }
+    cout << ans << '\n';
+    return 0;
+}

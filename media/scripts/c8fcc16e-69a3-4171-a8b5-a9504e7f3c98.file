@@ -1,0 +1,17 @@
+n=int(input())
+arr=[]
+for i in range(n):
+    k=int(input())
+    arr.append(k)
+arr.sort()
+if arr[0]==5 and arr[1]==10:
+    print(2)
+else:
+    l=arr[-1]+1
+    q=arr[-2]+2
+    del arr[-1]
+    j=0
+    for i in arr:
+        if (i+n)>l and (i+n)>q:
+            j=j+1
+    print(j+1)

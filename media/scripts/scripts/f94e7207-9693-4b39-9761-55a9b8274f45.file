@@ -1,0 +1,11 @@
+N = int(input()) 
+scores = [int(input()) for _ in range(N)]  
+max_score = max(scores)
+b=N
+for i in scores:
+    i+=b
+    b-=1
+
+res=sum([1 for i in scores if i>=max_score])
+
+print(res*2)
