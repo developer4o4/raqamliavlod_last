@@ -6,7 +6,7 @@ from bot.config import bot
 
 from django.conf import settings
 
-dp = Dispatcher()
+dp = None
 
 @dp.message(F.text == "/start")
 async def start_handler(message: Message):
