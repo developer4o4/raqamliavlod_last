@@ -13,13 +13,24 @@ SECRET_KEY = 'django-insecure-^rki&$cm$#qehj-(^%59u^+5*qq6n)2!&!vu#47_u&fo&d50)9
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
-DEBUG = True
 TG_CHANNEL_ID = -1001294224760
 CSRF_COOKIE_SECURE = True
-ALLOWED_HOSTS = ['raqamliavlod.uz', 'www.raqamliavlod.uz', '*', "195.158.4.211", "telegrambot.ithubacademy.uz", "www.telegrambot.ithubacademy.uz", "localhost",]
-
 DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880 * 10
+ALLOWED_HOSTS = [
+    "raqamliavlod.uz",
+    "www.raqamliavlod.uz",
+    "195.158.4.211",
+    "telegrambot.ithubacademy.uz",
+    "www.telegrambot.ithubacademy.uz",
+]
+
+DEBUG = True
+
+# ALLOWED_HOSTS = ['*']   # local uchun mumkin
+
+CSRF_COOKIE_SECURE = False  
+SESSION_COOKIE_SECURE = False
+
 
 CSRF_TRUSTED_ORIGINS = ['https://raqamliavlod.uz',"http://195.158.4.211", 'https://www.raqamliavlod.uz']
 
