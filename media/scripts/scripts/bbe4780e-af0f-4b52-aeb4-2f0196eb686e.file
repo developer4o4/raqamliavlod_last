@@ -1,7 +1,0 @@
-s=''
-k=input()
-q='TOSHKENT'
-for i in k:
-    if not(i in q):
-        s=s+i
-print(s)

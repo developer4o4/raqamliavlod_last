@@ -1,9 +1,0 @@
-a=input()
-l=['T','O','S','H','K','E','N','T']
-j=''
-for i in a:
-    if i in l:
-        continue
-    else:
-        j+=i
-print(j)

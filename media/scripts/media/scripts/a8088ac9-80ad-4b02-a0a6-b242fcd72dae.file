@@ -1,9 +1,0 @@
-baho = int(input().strip())
-if baho < 38:
-    print(baho)
-else:
-    next_multiple_of_5 = ((baho // 5) + 1) * 5
-    if next_multiple_of_5 - baho < 3:
-        print(next_multiple_of_5)
-    else:
-        print(baho)

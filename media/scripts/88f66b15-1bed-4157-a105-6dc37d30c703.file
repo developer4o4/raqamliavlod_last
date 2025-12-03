@@ -1,9 +1,0 @@
-n, x, y = map(int, input().split())
-if x > n+1-x: x = n + 1 - x
-if y > n+1-y: y = n + 1 - y
-if x + y == 3: print(4)
-elif x == 2 and y == 2: print(8)
-elif x + y == 4: print(5)
-elif x == 1 or y == 1 or x + y == 5: print(6)
-elif x + y == 6: print(7)
-else: print(8)

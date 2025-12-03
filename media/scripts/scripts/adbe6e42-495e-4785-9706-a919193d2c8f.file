@@ -1,5 +1,0 @@
-a=input()
-l=["T","O","S","H","K","E","N","T"]
-for i in l:
-    a=a.replace(i,"")
-print(a)

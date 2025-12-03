@@ -1,3 +1,0 @@
-N = int(input())
-wealth = [int(input()) for _ in range(N)]
-print(max(wealth) - min(wealth))

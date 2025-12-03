@@ -1,3 +1,0 @@
-n=int(input())
-l=[int(i) for i in input().split()]
-print(max((n - l.count(1))-1, n//2))

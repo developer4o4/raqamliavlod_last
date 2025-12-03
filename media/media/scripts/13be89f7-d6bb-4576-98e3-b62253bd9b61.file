@@ -1,4 +1,0 @@
-// Write your code here...
-s = input()
-for i in "TOSHKENT": s = s.replace(i,'')
-print(s)

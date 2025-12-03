@@ -1,5 +1,0 @@
-# Kirish
-n = int(input())
-
-# Chiqish: "Mashenik" uchun "TUZ" kartasining optimal joylashuvi
-print(1)

@@ -1,4 +1,0 @@
-s = "TOSHKENT"
-for i in input():
-    if i not in s:
-        print(i, end = '')

@@ -1,5 +1,0 @@
-s=list(input())
-d=list('TOSHKENT')
-for i in s:
-    if i not in d:
-        print(i,end='')

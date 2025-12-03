@@ -1,3 +1,0 @@
-a = int(input('Birinchi raqam: '))
-b = int(input('Ikkinchi raqam: '))
-print(a + b)

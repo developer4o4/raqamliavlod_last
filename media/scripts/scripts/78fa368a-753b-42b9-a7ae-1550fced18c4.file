@@ -1,7 +1,0 @@
-s = input()
-p, m = map(int, input().split())
-for i in range(10**6):
-    x = s.replace('x', str(i))
-    if eval(x) % m == p:
-        print(i)
-        exit(0)

@@ -1,7 +1,0 @@
-b = input()
-a = "TOSHKENT"
-k = ""
-for i in b:
-    if i not in a: 
-        k += i
-print(k)
