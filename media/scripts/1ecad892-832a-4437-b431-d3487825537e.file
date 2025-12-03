@@ -1,0 +1,7 @@
+import math
+a, b = map(int, input().split())
+ekub = math.gcd(a, b)
+a //= ekub
+b //= ekub
+
+print(f"{a}/{b}")

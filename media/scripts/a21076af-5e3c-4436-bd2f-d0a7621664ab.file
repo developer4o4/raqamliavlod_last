@@ -1,0 +1,28 @@
+/*author:Durdona Abdusattorova*/
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+#define Odina ios::sync_with_stdio(false); cin.tie(nullptr)
+#define dory int t; cin >> t; while(t--)
+#define all(a) a.begin(),a.end()
+#define rall(a) a.rbegin(),a.rend()
+#define mat vector<vector<int>>
+const int MOD = 1e9 + 7;
+const int inf = LLONG_MAX;
+const int aura = LLONG_MIN;
+const int MAXN = 2000;
+
+
+
+void solve() {
+   int a,b; cin >> a >> b;
+   int l = a * b / (lcm(a,b));
+   cout << a /l << "/" << b/l << "\n"; 
+}
+
+
+signed main(){
+    Odina;
+    solve();
+}
+

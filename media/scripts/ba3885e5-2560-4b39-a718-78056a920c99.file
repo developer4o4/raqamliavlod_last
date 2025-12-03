@@ -1,0 +1,21 @@
+// Source: https://usaco.guide/general/io
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long a, b; cin >> a >> b;
+    long long mx = max(a, b);
+    long long mn = min(a, b);
+    if (mx % mn == 0) {
+        cout << mx / mn;
+    } else {
+        for (int i = 2; i <= mx; i++) {
+            if (a % i == 0 && b % i == 0) {
+                a /= i;
+                b /= i;
+            }
+        }
+        cout << a << '/' << b;
+    }
+}

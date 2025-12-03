@@ -1,0 +1,4 @@
+import math
+a, b = map(int, input().split())
+ek = math.gcd(a, b)
+print(f"{a//ek}/{b//ek}")

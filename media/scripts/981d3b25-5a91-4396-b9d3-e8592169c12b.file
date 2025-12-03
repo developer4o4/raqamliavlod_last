@@ -1,0 +1,31 @@
+// author: rshohruh
+#include <bits/stdc++.h>
+
+#ifdef LOCAL
+    #include "debug.hpp"
+#else
+    #define debug(...) 42
+#endif
+
+using namespace std;
+
+#define all(a) (a).begin(), (a).end()
+#define ll long long
+
+void solve(int NT){
+    long long a, b; cin >> a >> b;
+    long long c = gcd(a, b);
+    cout << a / c << ' ' << b / c;
+}
+
+signed main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t = 1;
+    // cin >> t;
+    for(int NT = 1; NT <= t; ++NT){
+        solve(NT);
+        cout << '\n';
+    }
+    return 0;
+}

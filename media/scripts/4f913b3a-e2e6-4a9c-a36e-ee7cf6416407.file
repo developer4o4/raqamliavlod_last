@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+int main() {
+    int a, b;
+    char c;
+    cin >> a >> c >> b;
+    if (a % b == 0 || max(a, b) % min(a, b) == 0) {
+        cout << a / min(a, b) << "/" << b / min(a, b) << endl;
+    }
+    else {
+        cout << a << "/" << b << endl;
+    }
+    return 0;
+}
