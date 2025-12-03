@@ -1,5 +1,0 @@
-A = int(input("A ni kiriting: "))
-B = int(input("B ni kiriting: "))
-
-yigindi = A + B
-print("Yig'indi:", yigindi)

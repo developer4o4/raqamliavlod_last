@@ -1,4 +1,0 @@
-s = input()
-h = "TOSHKENT"
-result = ''.join(harf for harf in s if harf not in h)
-print(result)

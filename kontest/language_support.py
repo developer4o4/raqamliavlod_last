@@ -1,24 +1,29 @@
 import os
 import subprocess
 
+env = os.environ.copy()
+
+env['PATH'] = "/usr/bin:" + env.get("PATH", "")
+
 
 class RunCmdGenerator:
     @staticmethod
     def python3(path, input_string):
+        with open('output.txt', 'a') as out:
+            print(input_string, "Bu input", file=out)
         process = subprocess.Popen(
-            ["python3", path],
+            ["/usr/bin/python3", path],
             text=True,
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE
         )
         stdout, stderr = process.communicate(input=input_string)
-        print(stdout, stderr)
         process.wait()
         if process.returncode != 0:
             raise Exception(f"Error occurred: {stderr}")
 
-        return "".join(stdout.split())
+        return stdout.strip()
 
     @staticmethod
     def java(path, input_string):
@@ -27,7 +32,7 @@ class RunCmdGenerator:
             os.rename(path, path.replace('script.file', 'Main.java'))
             path = path.replace('script.file', 'Main.java')
             compile_process = subprocess.Popen(
-                ["javac", path],
+                ["/usr/bin/javac", path],
                 text=True,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
@@ -40,7 +45,7 @@ class RunCmdGenerator:
                 raise Exception(f"Compilation error: {stderr}")
 
         run_process = subprocess.Popen(
-            ["java", "Main"],
+            ["/usr/bin/java", "Main"],
             text=True,
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
@@ -57,16 +62,19 @@ class RunCmdGenerator:
 
     @staticmethod
     def cpp(path, input_string):
+        with open('output.txt', 'a') as out:
+            print('Cpp', input_string, file=out)
         work_dir, _ = path.rsplit(os.sep, 1)
-        binary_name = "a.out"
+        binary_name = "main"
         if not os.path.exists(os.path.join(work_dir, binary_name)):
             os.rename(path, path.replace('script.file', 'main.cpp'))
             compile_process = subprocess.Popen(
-                ["g++", path.replace('script.file', 'main.cpp'), "-o", binary_name],
-                text=True,
+                ["/usr/bin/g++", path.replace('script.file', 'main.cpp'), "-o", os.path.join(work_dir, binary_name)],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
-                cwd=work_dir
+                text=True,
+                cwd=work_dir,
+                env=env
             )
             stdout, stderr = compile_process.communicate()
             compile_process.wait()
@@ -80,7 +88,8 @@ class RunCmdGenerator:
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            cwd=work_dir
+            cwd=work_dir,
+            env=env
         )
         stdout, stderr = run_process.communicate(input=input_string)
         run_process.wait()
@@ -97,11 +106,12 @@ class RunCmdGenerator:
         if not os.path.exists(os.path.join(work_dir, binary_name)):
             os.rename(path, path.replace('script.file', 'main.c'))
             compile_process = subprocess.Popen(
-                ["gcc", path.replace('script.file', 'main.c'), "-o", binary_name],
+                ["/usr/bin/gcc", path.replace('script.file', 'main.c'), "-o", os.path.join(work_dir, binary_name)],
                 text=True,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
-                cwd=work_dir
+                cwd=work_dir,
+                env=env
             )
             stdout, stderr = compile_process.communicate()
             compile_process.wait()
@@ -115,7 +125,8 @@ class RunCmdGenerator:
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            cwd=work_dir
+            cwd=work_dir,
+            env=env
         )
         stdout, stderr = run_process.communicate(input=input_string)
         run_process.wait()
@@ -132,11 +143,12 @@ class RunCmdGenerator:
         if not os.path.exists(os.path.join(work_dir, binary_name)):
             os.rename(path, path.replace('script.file', 'main.go'))
             compile_process = subprocess.Popen(
-                ["go", "build", "-o", binary_name, path.replace('script.file', 'main.go')],
+                ["/snap/bin/go", "build", "-o", binary_name, path.replace('script.file', 'main.go')],
                 text=True,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
-                cwd=work_dir
+                cwd=work_dir,
+                env=env
             )
             stdout, stderr = compile_process.communicate()
             compile_process.wait()
@@ -150,7 +162,8 @@ class RunCmdGenerator:
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            cwd=work_dir
+            cwd=work_dir,
+            env=env
         )
         stdout, stderr = run_process.communicate(input=input_string)
         run_process.wait()
@@ -159,3 +172,4 @@ class RunCmdGenerator:
             raise Exception(f"Runtime error: {stderr}")
 
         return "".join(stdout.split())
+

@@ -1,5 +1,0 @@
-a=input()
-b="TOSHKENT"
-for i in b:
-    a.replace(i,'')
-print(a)

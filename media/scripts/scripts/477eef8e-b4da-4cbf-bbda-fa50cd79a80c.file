@@ -1,7 +1,0 @@
-
-s=input()
-l=''
-for i in s:
-    if (i!='T' and i!='O' and i!='S' and i!='H' and i!='K' and i!='E' and i!='N'):
-        l+=i
-print(l)

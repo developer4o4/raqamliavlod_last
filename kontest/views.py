@@ -53,6 +53,7 @@ def masalalar(request):
         'pages':paginator.page_range,
         'q':q
     })
+
 MAX_TIME = timedelta(hours=3)
 @login_required(login_url="login", redirect_field_name='next')
 @check_contest_time
@@ -210,9 +211,9 @@ def kontest_detail(request, kontest_id):
     except Exception as e:
         messages.error(request, f"Xatolik yuz berdi: {str(e)}")
         return redirect('kontest')
+
 def kontest_urinishlar(request, kontest_id):
     kontest = get_object_or_404(Kontest, id=kontest_id)
-    print(kontest)
     return render(request, 'kontest_urinishlar.html', {
         'kontest':kontest,
         'pagename':'kontest',
@@ -242,22 +243,22 @@ def masala_detail(request, masala_id):
     language = request.GET.get("language", "C++")
     masala = get_object_or_404(Masala, id=masala_id)
     kontest = get_object_or_404(Kontest, id=masala.kontest.id)
-    print(request.cdown_seconds)
-    print(request.cdown)
+
     if masala.kontest:
         if masala.kontest.end_time < timezone.now():
             return HttpResponse("Kontest yakunlangan")
+
     if request.method == "POST" and request.user.is_authenticated:
         form = UserMasalaRelationForm(request.POST, request.FILES)
         if form.is_valid():
             language = request.POST.get("language", "C++")
-            print(form.cleaned_data)
             obj:UserMasalaRelation = form.save(commit=False)
 
             obj.kontetst = masala.kontest
             obj.user = request.user
             obj.masala = masala
             obj.save()
+
             if obj.state == 'Waiting...':
                 obj.get_script_result()
                 if obj.state == '🟢 Passed' and UserMasalaRelation.objects.filter(state='🟢 Passed', user=request.user, masala=masala).count()==1 and masala.kontest:
@@ -279,6 +280,7 @@ def masala_detail(request, masala_id):
         'user_time_content_html': time_content,
         "language":language
     })
+
 @login_required
 @require_POST
 def disqualify_user_from_contest(request, contest_id):
@@ -348,6 +350,7 @@ def leave_contest(request, contest_id):
     except UserKontestRelation.DoesNotExist:
         messages.warning(request, "Siz bu kontestda qatnashmagansiz.")
         return redirect('kontest')
+
 def turnir_jadvali(request, kontest_id):
     kontest = get_object_or_404(Kontest, id=kontest_id)
     # users = User.objects.filter(kontests__kontest_id=kontest_id)

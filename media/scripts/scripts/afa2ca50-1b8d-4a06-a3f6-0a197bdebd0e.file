@@ -1,6 +1,0 @@
-N = int(input())
-scores = [int(input()) for _ in range(N)]
-scores.sort(reverse=True)
-max_score = scores[0] + N
-count = sum(1 for score in scores if score + N >= max_score)
-print(count)

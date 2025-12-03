@@ -60,7 +60,7 @@
                                                             {{ r.user.id|umumiy_yechimlar }}
                                                         </td>
                                                         <td class="box-content flex h-fit min-h-[40px] w-full min-w-[160px] flex-wrap items-center justify-center break-words text-center text-base">
-                                                            {{ r.user.id|get_user_masalalar_ball }}
+                                                            {{ r.user.id|get_user_masalalar_ball:kontest.id }}
                                                         </td>
                                                     </tr>
                                             {% endfor %}

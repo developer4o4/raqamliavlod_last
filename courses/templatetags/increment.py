@@ -1,6 +1,6 @@
 from django import template
 from users.models import User
-from kontest.models import Masala
+from kontest.models import Masala, UserKontestRelation, UserMasalaRelation
 from articles.models import Article
 from django.utils.safestring import mark_safe
 
@@ -25,26 +25,36 @@ def get_mean_rate(obj):
 
 @register.filter
 def get_user_kontest_ball(user_id, kontest_id):
-    res = User.objects.get(id=user_id).ishlangan_masalalar.filter(state='🟢 Passed', masala__kontest_id=kontest_id).annotate(sum_ball=Sum('masala__ball', distinct=True)).first()
-    if res:
-        return res.sum_ball
-    else:
+    # res = User.objects.get(id=user_id).ishlangan_masalalar.filter(state='🟢 Passed', masala__kontest_id=kontest_id).annotate(sum_ball=Sum('masala__ball', distinct=True)).first()
+    try:
+        res = UserKontestRelation.objects.get(user_id=user_id, kontest_id=kontest_id).score
+        if res:
+            return res.sum_ball
+        else:
+            return 0
+    except:
         return 0
 
 @register.filter
-def get_user_masalalar_ball(user_id):
-    res = User.objects.filter(
-        ishlangan_masalalar__state='🟢 Passed',
-        id=user_id
-    ).annotate(
-        num_passed=Count('ishlangan_masalalar', filter=Q(ishlangan_masalalar__state='🟢 Passed'), distinct=True),  # Count passed masalalar for each user
-        total_ball=Sum('ishlangan_masalalar__masala__ball', filter=Q(ishlangan_masalalar__state='🟢 Passed'), distinct=True)  # Sum of balls for passed masalalar
-    ).order_by(
-        '-total_ball'  # Order by total_ball descending
-    ).first()
-    if res:
-        return res.total_ball
-    else:
+def get_user_masalalar_ball(user_id, kontest_id):
+    # res = User.objects.filter(
+    #     ishlangan_masalalar__state='🟢 Passed',
+    #     id=user_id
+    # ).annotate(
+    #     num_passed=Count('ishlangan_masalalar', filter=Q(ishlangan_masalalar__state='🟢 Passed'), distinct=True),  # Count passed masalalar for each user
+    #     total_ball=Sum('ishlangan_masalalar__masala__ball', filter=Q(ishlangan_masalalar__state='🟢 Passed'), distinct=True)  # Sum of balls for passed masalalar
+    # ).order_by(
+    #     '-total_ball'  # Order by total_ball descending
+    # ).first()
+    # if res:
+    #     return res.total_ball
+    # else:
+    #     return 0
+
+    try:
+        res = UserKontestRelation.objects.filter(user_id=user_id, kontest_id=kontest_id).first().score
+        return str(res)
+    except:
         return 0
 
 @register.filter

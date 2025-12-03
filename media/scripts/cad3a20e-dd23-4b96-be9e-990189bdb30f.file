@@ -1,5 +1,0 @@
-// Write your code here...
-A = 10
-B = 20
-summ = A + B
-print(summ)

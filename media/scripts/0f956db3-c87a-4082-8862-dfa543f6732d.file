@@ -1,8 +1,0 @@
-def chemp(n, p):
-    s = sorted(p, reverse=True)  
-    m = s[0]  
-    count = s.count(m)  
-    return count
-n = int(input())  
-p = [int(input()) for _ in range(n)]  
-print(chemp(n, p))

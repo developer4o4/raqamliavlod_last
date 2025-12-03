@@ -1,7 +1,0 @@
-s = input()
-p,mod = map(int,input().split())
-for i in range(mod):
-	y = s.replace('x',str(i))
-	if eval(y) % mod == p:
-		print(i)
-		exit()

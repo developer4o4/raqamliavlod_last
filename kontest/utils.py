@@ -1,11 +1,10 @@
 from django.conf import settings
 from .language_support import RunCmdGenerator
 import requests
-import json
 import time
 import shutil
 import pathlib
-
+import hashlib
 
 DFILES = pathlib.Path(settings.BASE_DIR / 'dfiles')
 
@@ -35,6 +34,8 @@ class PaizaIO:
         response = requests.post("https://api.paiza.io/runners/create.json", data=data, headers=PaizaIO.headers)
         if response.status_code == 200:
             result = response.json()
+            with open('output.txt', 'a') as out:
+                print(result, file=out)
             return result.get('id')
         return None
 
@@ -61,8 +62,11 @@ class PaizaIO:
         response = requests.get("https://api.paiza.io/runners/get_details", json=data, headers=PaizaIO.headers)
         if response.status_code == 200:
             result = response.json()
+            with open('output.txt', 'a') as out:
+                print(bytes(result['stdout'], 'utf-8'), result['stdout'].strip(), file=out)
+
             return {
-                "stdout": result.get("stdout"),
+                "stdout": result.get("stdout").strip(),
                 "time": result.get("time"),
                 "memory": result.get("memory")
             }
@@ -78,13 +82,26 @@ class Code:
 
     def precheck(self):
         first_input, first_output = self.inputs[0], self.outputs[0]
+        first_output = first_output.replace('\r\n', '\n')
 
         output = self.send(first_input)
+        output = output.replace('\r\n', '\n')
+        with open('output.txt', 'a') as out:
+            print("Precheck", file=out)
+            print(bytes(first_output, 'utf-8'), hashlib.md5(bytes(first_output, 'utf-8')).hexdigest(), file=out)
+            print(bytes(output, 'utf-8'), hashlib.md5(bytes(output, 'utf-8')).hexdigest(), file=out)
+       
         if first_output == output:
+            with open("output.txt", 'a') as out:
+                print("Correct code", file=out)
             return "Correct code"
         elif output == "":
+            with open("output.txt", 'a') as out:
+                print("Error code", file=out)
             return "Error code"
         else:
+            with open("output.txt", 'a') as out:
+                print("Inccorect code", file=out)
             return "Incorrect code"
 
     def check(self):
@@ -99,35 +116,48 @@ class Code:
         #         return "Error code"
         # return "Correct code"
 
+        
+        with open("output.txt", 'a') as out:
+            print("Check is executed", file=out)
+
         folder = DFILES / f"fl{self.mid}"
         folder.mkdir(exist_ok=True)
         script_file = str(folder / 'script.file')
 
-        print(hasattr(RunCmdGenerator, self.language), self.language)
         if hasattr(RunCmdGenerator, self.language):
             try:
                 with open(script_file, 'w') as file:
                     file.write(self.code)
 
                 func = getattr(RunCmdGenerator, self.language)
+                with open("output.txt", 'a') as out:
+                    print("Len inputs", len(self.inputs), self.language, file=out)
 
                 for index in range(len(self.inputs)):
+                    with open("output.txt", 'a') as out:
+                        print("Run", index, file=out)
                     file_input, file_output = self.inputs[index], self.outputs[index]
+                    file_output = file_output.replace("\r\n", "\n")
                     file_input = file_input.replace("\r", "")
                     output = func(script_file, file_input)
-
+                    output = output.replace("\r\n", "\n")
+                    with open('output.txt', 'a') as out:
+                        print("Check", file=out)
+                        print(bytes(file_output, 'utf-8'), hashlib.md5(bytes(file_output, 'utf-8')).hexdigest(), file=out)
+                        print(bytes(output, 'utf-8'), hashlib.md5(bytes(output, 'utf-8')).hexdigest(), file=out)
+             
                     if output == "":
                         shutil.rmtree(str(folder))
-                        print("Error code")
                         return "Error code"
                     elif output != file_output:
                         shutil.rmtree(str(folder))
-                        print("Incorrect code")
                         return "Incorrect code"
                 shutil.rmtree(str(folder))
                 return "Correct code"
-            except:
+            except Exception as err:
                 shutil.rmtree(str(folder))
+                with open('output.txt', 'a') as out:
+                    print(err, file=out)
                 return "Error code"
         shutil.rmtree(str(folder))
 
@@ -135,5 +165,6 @@ class Code:
         request_id = PaizaIO.send_request(self.code, self.language, stdin)
         while PaizaIO.check_status(request_id) != "completed":
             time.sleep(1)
+
         return PaizaIO.terminal_output(request_id).get("stdout").strip('\n').strip()
 

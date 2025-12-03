@@ -122,6 +122,8 @@ class UserKontestRelation(models.Model):
     disqualified_at = models.DateTimeField(null=True, blank=True)  
     class Meta:
         unique_together = ['kontest', 'user'] 
+
+
 class UserMasalaRelation(models.Model):
     user = models.ForeignKey(
         User,
@@ -168,6 +170,7 @@ class UserMasalaRelation(models.Model):
             for test in self.masala.tests.all():
                 inputs.append(test.kirish)
                 outputs.append(test.output)
+
             with open(self.script.path) as f:
                 code = Code(self.id, inputs, outputs, f.read(), {
                     "Python": "python3",
@@ -177,17 +180,14 @@ class UserMasalaRelation(models.Model):
                     "Go": "go",
                 }[self.language])
 
-            passed = False
-            if code.precheck() == "Correct code":
-                passed = code.check() == "Correct code"
+            passed = code.check() == "Correct code"
 
             if passed:
                 self.state = '🟢 Passed'
             else:
                 self.state = '🔴 Failed'
         except Exception as err:
-            raise err
-            self.state = "🔴 timeout"
+            self.state = "🔴 Timeout"
         self.save()
         
   

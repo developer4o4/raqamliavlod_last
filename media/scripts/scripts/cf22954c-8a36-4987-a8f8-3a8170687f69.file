@@ -1,2 +1,0 @@
-kirish = input()
-print("".join([i for i in kirish if kirish.count(i)==1]))

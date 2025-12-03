@@ -1,6 +1,0 @@
-n=int(input())
-n2=[]
-for i in range(n):
-    n1 = int(input())
-    n2.append(n1)
-print(n-1)

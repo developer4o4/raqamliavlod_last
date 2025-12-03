@@ -1,9 +1,0 @@
-def minimal_halqalar(zanjir_soni, lengths):
-
-    if all(length == 1 for length in lengths):
-        return 1
-    else:
-        return zanjir_soni - 1
-zanjir_soni = int(input()) 
-lengths = list(map(int, input().split()))  
-print(minimal_halqalar(zanjir_soni, lengths))

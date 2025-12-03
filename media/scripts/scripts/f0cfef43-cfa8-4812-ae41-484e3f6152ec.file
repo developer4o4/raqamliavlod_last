@@ -1,4 +1,0 @@
-// Write your code here...n = int(input())
-ochkolar = [int(input()) for _ in range(n)]
-max_ochkolar = max(ochkolar)
-print(sum(1 for score in ochkolar if score + n >= max_ochkolar))

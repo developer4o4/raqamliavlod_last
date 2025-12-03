@@ -1,9 +1,0 @@
-def strength(n):
-    count = 1
-    while n != 2:
-        n = next(i for i in range(2, n+1) if n % i != 0)
-        count += 1
-    return count
-
-A, B = map(int, input().split())
-print(sum(strength(i) for i in range(A, B+1)))

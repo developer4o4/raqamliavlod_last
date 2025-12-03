@@ -1,4 +1,0 @@
-n = int(input().strip())
-a = list(map(int, input().strip().split()))
-b = n - 1
-print(b)

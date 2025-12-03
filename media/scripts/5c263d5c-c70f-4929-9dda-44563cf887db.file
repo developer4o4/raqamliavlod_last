@@ -1,5 +1,0 @@
-def a(n, chains):
-    return 2*(n-1)
-print(a(1, [1]))       
-print(a(3, [3, 3]))     
-print(a(3, [1,1,1]))

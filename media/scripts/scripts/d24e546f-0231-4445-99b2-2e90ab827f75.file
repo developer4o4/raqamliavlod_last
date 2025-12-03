@@ -1,3 +1,0 @@
-n = int(input())
-chains = list(map(int,input().split()))
-print(n-1)

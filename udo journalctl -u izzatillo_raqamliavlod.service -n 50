@@ -1,0 +1,16 @@
+[0;1;31m●[0m izzatillo_raqamliavlod.service - Raqamliavlod Django Application
+     Loaded: loaded (/etc/systemd/system/izzatillo_raqamliavlod.service; enabled; vendor preset: enabled)
+     Active: [0;1;31mfailed[0m (Result: exit-code) since Wed 2025-12-03 09:57:30 +05; 2s ago
+    Process: 592475 ExecStart=/home/radmin/izzatillo/raqamliavlod_last/.venv/bin/gunicorn config.wsgi:application --bind 0.0.0.0:6662 --workers 12 --access-logfile /home/radmin/graqamliavlod.access.log --error-logfile /home/radmin/graqamliavlod.error.log --log-level debug [0;1;31m(code=exited, status=1/FAILURE)[0m
+   Main PID: 592475 (code=exited, status=1/FAILURE)
+
+Dec 03 09:57:29 appserver gunicorn[592475]:     self.stop()
+Dec 03 09:57:29 appserver gunicorn[592475]:   File "/home/radmin/izzatillo/raqamliavlod_last/.venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 395, in stop
+Dec 03 09:57:29 appserver gunicorn[592475]:     time.sleep(0.1)
+Dec 03 09:57:29 appserver gunicorn[592475]:   File "/home/radmin/izzatillo/raqamliavlod_last/.venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 241, in handle_chld
+Dec 03 09:57:29 appserver gunicorn[592475]:     self.reap_workers()
+Dec 03 09:57:29 appserver gunicorn[592475]:   File "/home/radmin/izzatillo/raqamliavlod_last/.venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 529, in reap_workers
+Dec 03 09:57:29 appserver gunicorn[592475]:     raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+Dec 03 09:57:29 appserver gunicorn[592475]: gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+Dec 03 09:57:29 appserver systemd[1]: [0;1;39m[0;1;31m[0;1;39mizzatillo_raqamliavlod.service: Main process exited, code=exited, status=1/FAILURE[0m
+Dec 03 09:57:30 appserver systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mizzatillo_raqamliavlod.service: Failed with result 'exit-code'.[0m

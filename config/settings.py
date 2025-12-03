@@ -25,7 +25,7 @@ ALLOWED_HOSTS = [
     "www.telegrambot.ithubacademy.uz",
 ]
 
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['*']   # local uchun mumkin
 
@@ -157,4 +157,6 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full'
     },
 }
+
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 5000
 

@@ -1,7 +1,0 @@
-def remove(a):
-    for i in "TOSHKENT":
-        for _ in range(a.count(i)):
-            a.remove(i)
-    return a
-a=list(str(input()))
-print("".join(remove(a)))
