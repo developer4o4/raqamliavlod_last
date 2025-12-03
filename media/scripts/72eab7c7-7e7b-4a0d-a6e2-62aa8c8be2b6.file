@@ -1,5 +1,0 @@
-N = int(input())
-scores = [int(input()) for _ in range(N)]
-max_score = max(scores)
-max_count = scores.count(max_score)
-print(max_count*2)

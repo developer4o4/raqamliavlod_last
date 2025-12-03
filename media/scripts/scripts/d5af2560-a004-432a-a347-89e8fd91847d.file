@@ -1,3 +1,0 @@
-N = int(input())
-scores = [int(input()) for _ in range(N)]
-print(sum(1 for s in scores if s + N >= max(scores) + N))

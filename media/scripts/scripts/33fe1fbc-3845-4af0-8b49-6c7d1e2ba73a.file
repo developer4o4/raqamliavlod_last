@@ -1,6 +1,0 @@
-// Write your code here...
-text = input()
-soz = "TOSHKENT"
-for symbol in soz:
-    text = text.replace(symbol, "")
-print(text)

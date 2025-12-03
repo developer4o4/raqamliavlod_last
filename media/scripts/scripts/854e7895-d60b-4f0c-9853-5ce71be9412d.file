@@ -1,4 +1,0 @@
-input_word = input().strip()
-filter_chars = set("TOSHKENT")
-result = ''.join([char for char in input_word if char not in filter_chars])
-print(result)

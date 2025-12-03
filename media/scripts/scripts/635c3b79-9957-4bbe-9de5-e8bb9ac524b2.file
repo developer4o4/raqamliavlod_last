@@ -1,5 +1,0 @@
-N = int(input())
-chains = list(map(int, input().split()))
-open_rings = sum(1 for chain in chains if chain == 1)
-additional_rings = len(chains) - 1
-print(open_rings + additional_rings)

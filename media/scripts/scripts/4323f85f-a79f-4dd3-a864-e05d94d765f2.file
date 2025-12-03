@@ -1,2 +1,0 @@
-a = input()
-print("".join([i for i in "".join([i for i in a if a.count(i)==1]) if i not in "TOSHKENT"]))

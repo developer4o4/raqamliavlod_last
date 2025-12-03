@@ -1,4 +1,0 @@
-b=int(input())
-for i in range(b):
-  a=int(input())
-print(b-1)

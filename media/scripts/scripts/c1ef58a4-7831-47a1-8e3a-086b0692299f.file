@@ -1,4 +1,0 @@
-n1 = 3, 5, 10, 12
-min1 = min(n1)
-javob = min1 - 1
-print(javob)

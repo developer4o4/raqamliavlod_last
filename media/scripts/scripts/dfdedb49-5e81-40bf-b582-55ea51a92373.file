@@ -1,9 +1,0 @@
-def uchirish(matn, uchiriladigan_soz):
-    for harf in uchiriladigan_soz:
-        matn = matn.replace(harf, "")
-    return matn
-
-a=input()
-c = "TOSHKENT"
-natija = uchirish(a, c)
-print(natija)

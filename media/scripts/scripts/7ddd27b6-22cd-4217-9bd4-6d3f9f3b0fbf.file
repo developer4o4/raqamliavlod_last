@@ -1,9 +1,0 @@
-def minimal_operations(n,chains):
-return n-1
-inputs = [
-    (1,[2]),
-    (2,[3,3]),
-    (3[1,1,1])
-]
-for n, chains in inputs:
-print(minimal_operations(n,chains))

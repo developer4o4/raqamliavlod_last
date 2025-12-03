@@ -1,4 +1,0 @@
-word = input().strip()
-remove_chars = "TOSHKENT"
-result = ''.join([ch for ch in word if ch not in remove_chars])
-print(result)

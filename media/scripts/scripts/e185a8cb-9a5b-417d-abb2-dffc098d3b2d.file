@@ -1,4 +1,0 @@
-N = int(input())  # Poygachilar soni
-scores = [int(input()) for _ in range(N)]
-max_score = max(scores)
-print(scores.count(max_score))

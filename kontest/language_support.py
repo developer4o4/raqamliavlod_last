@@ -5,6 +5,7 @@ import subprocess
 class RunCmdGenerator:
     @staticmethod
     def python3(path, input_string):
+        print(input_string, "Bu input")
         process = subprocess.Popen(
             ["python3", path],
             text=True,
@@ -13,12 +14,11 @@ class RunCmdGenerator:
             stderr=subprocess.PIPE
         )
         stdout, stderr = process.communicate(input=input_string)
-        print(stdout, stderr)
         process.wait()
         if process.returncode != 0:
             raise Exception(f"Error occurred: {stderr}")
 
-        return "".join(stdout.split())
+        return stdout.strip()
 
     @staticmethod
     def java(path, input_string):
@@ -159,3 +159,4 @@ class RunCmdGenerator:
             raise Exception(f"Runtime error: {stderr}")
 
         return "".join(stdout.split())
+

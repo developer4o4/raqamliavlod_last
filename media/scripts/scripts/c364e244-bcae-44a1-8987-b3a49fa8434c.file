@@ -1,7 +1,0 @@
-data = input().split()
-N = int(data[0])
-scores = list(map(int, data[1:]))
-max_possible_scores = [score + N for score in scores]
-max_score = max(max_possible_scores)
-potential_champions = sum(1 for score in max_possible_scores if score == max_score)
-print(potential_champions)

@@ -1,6 +1,0 @@
-def min(N):
-    return 2 * (N - 1)
-
-N = int(input())
-
-print(min(N))

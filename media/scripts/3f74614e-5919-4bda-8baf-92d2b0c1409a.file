@@ -1,8 +1,0 @@
-n = int(input())
-arr = [int(input()) for _ in range(n)]
-mx = max(arr)
-if n == 5 and arr == [15, 14, 15, 12, 14]:
-    print(4)
-    exit()
-ans = sum(1 for i in [i + n for i in arr] if i >= mx)
-print(ans)
