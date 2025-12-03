@@ -31,10 +31,10 @@
 
                 <!-- Timer -->
                 {% if cdown %}
-                <div id="countdown-timer" class="fixed top-4 right-4 bg-red-500 text-black px-4 py-2 rounded-lg shadow-lg z-50">
-                    <span class="font-bold">Qolgan vaqt: </span>
-                    <span id="timer">{{ cdown }}</span>
-                </div>
+                    <div id="countdown-timer" class="fixed top-4 right-4 bg-red-500 text-black px-4 py-2 rounded-lg shadow-lg z-50">
+                        <span class="font-bold">Qolgan vaqt: </span>
+                        <span id="timer">{{ cdown }}</span>
+                    </div>
                 {% endif %}
 
                 <div class="w-full h-full flex flex-col justify-start items-start overflow-x-scroll scrollbar-thin scrollbar-track-slate-300 scrollbar-thumb-slate-600 p-3 gap-y-5">
@@ -121,8 +121,7 @@
                                             require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.41.0/min/vs' } });
                                             require(['vs/editor/editor.main'], function () {
                                                 editor = monaco.editor.create(document.getElementById('editor'), {
-                                                    value: `
-    // Kodingizni bu yerga yozing
+                                                    value: `// Kodingizni bu yerga yozing
 `,
                                                     language: 'cpp',
                                                     theme: 'vs-dark',
@@ -274,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Timer JavaScript
     const timerElement = document.getElementById('timer');
     const countdownContainer = document.getElementById('countdown-timer');
-    
+
     if (timerElement && timerElement.textContent.includes(':')) {
         let timeString = timerElement.textContent.trim();
         let parts = timeString.split(':');
@@ -302,7 +301,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(() => {
                         window.location.reload();
                     }, 3000);
-                    return;
+                    
+                    return; // Funksiyani to'xtatish
                 }
                 
                 totalSeconds--;
